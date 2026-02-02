@@ -230,7 +230,7 @@ const TeamSection = () => (
             <div className="founders-grid" style={{ maxWidth: '900px', margin: '0 auto', justifyContent: 'center' }}>
                 <div className="founder">
                     <div className="founder-photo">
-                        <img src="/assets/edgar.jpg" alt="Edgar Belda" />
+                        <img src={`${import.meta.env.BASE_URL}assets/edgar.jpg`} alt="Edgar Belda" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
                         <h3>Edgar Belda</h3>
@@ -242,7 +242,7 @@ const TeamSection = () => (
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
-                        <img src="/assets/nestor.jpg" alt="Néstor Lerma" />
+                        <img src={`${import.meta.env.BASE_URL}assets/nestor.jpg`} alt="Néstor Lerma" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
                         <h3>Néstor Lerma</h3>
@@ -254,7 +254,7 @@ const TeamSection = () => (
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
-                        <img src="/assets/elena.jpg" alt="Néstor Lerma" />
+                        <img src={`${import.meta.env.BASE_URL}assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
                         <h3>Elena Melchor</h3>
@@ -266,7 +266,7 @@ const TeamSection = () => (
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
-                        <img src="/assets/vicente.jpg" alt="Néstor Lerma" />
+                        <img src={`${import.meta.env.BASE_URL}assets/vicente.jpg`} alt="Vicente Baixauli" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
                         <h3>Vicente Baixauli</h3>

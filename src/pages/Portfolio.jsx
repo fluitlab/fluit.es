@@ -189,7 +189,7 @@ export const Portfolio = () => {
                 'Miro', 'Tinybird'
             ],
             link: 'https://qatium.com',
-            image: '/assets/qatium.png'
+            image: `${import.meta.env.BASE_URL}assets/qatium.png`
         },
         {
             title: 'Water4Cast',
@@ -210,7 +210,7 @@ export const Portfolio = () => {
                 'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
             ],
             link: 'https://water4cast.webs.upv.es',
-            image: '/assets/water4cast.jpg'
+            image: `${import.meta.env.BASE_URL}assets/water4cast.jpg`
         },
         {
             title: 'QGISRed',
@@ -224,7 +224,7 @@ export const Portfolio = () => {
                 'C#', 'XAML', 'Python', 'QGIS'
             ],
             link: 'https://qgisred.upv.es',
-            image: '/assets/qgisred.png'
+            image: `${import.meta.env.BASE_URL}assets/qgisred.png`
         },
         {
             title: 'Aquatool',
@@ -246,7 +246,7 @@ export const Portfolio = () => {
                 'C#', 'VB.NET', 'Windows Forms', 'XAML', 'VBA', 'DotSpatial'
             ],
             link: 'https://aquatool.webs.upv.es',
-            image: '/assets/aquatool.png'
+            image: `${import.meta.env.BASE_URL}assets/aquatool.png`
         },
         {
             title: 'Aquarius',
@@ -266,7 +266,7 @@ export const Portfolio = () => {
                 'Excel Export', 'CLI Tools', 'Logging & Auditing'
             ],
             link: 'https://aquaticinformatics.com/products/aquarius-environmental-water-data-management/',
-            image: '/assets/aquarius.png'
+            image: `${import.meta.env.BASE_URL}assets/aquarius.png`
         }
     ];
 
