@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
   // Si usas un dominio personalizado, base debe ser '/'
   // Si usas la url de github (usuario.github.io/repo), base debe ser '/repo/'
-  base: '/',
+  base: '/fluit.es/',
 })
