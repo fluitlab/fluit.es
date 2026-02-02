@@ -2,9 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  // Si usas un dominio personalizado, base debe ser '/'
-  // Si usas la url de github (usuario.github.io/repo), base debe ser '/repo/'
-  base: '/fluit.es/',
-})
+  // En desarrollo usa '/', en producción usa '/fluit.es/'
+  // Cuando uses dominio personalizado, cambia a '/' en ambos
+  base: mode === 'production' ? '/fluit.es/' : '/',
+}))

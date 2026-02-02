@@ -34,7 +34,7 @@ const ScrollToTop = () => {
 
 export default function App() {
   return (
-    <Router basename="/fluit.es">
+    <Router basename={import.meta.env.BASE_URL}>
       <RedirectHandler />
       <ScrollToTop />
       <div className="app-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
