@@ -5,7 +5,8 @@ export const Footer = () => (
         <div className="container footer-grid">
             <div className="footer-col">
                 <p className="footer-brand">FLUIT</p>
-                <p className="footer-tagline">Modelación Hidráulica & Consultoría Software</p>
+                <p className="footer-tagline">Ingeniería que fluye</p>
+                <p className="footer-subtag">Hidráulica · Software · IA</p>
                 <p className="footer-location">Valencia, España</p>
             </div>
             <div className="footer-col">

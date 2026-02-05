@@ -81,13 +81,22 @@ const techServices = [
     }
 ];
 
-const projects = [
-    { name: "Qatium", role: "Colaboración Tecnológica", years: 6, desc: "Desarrollo de plataforma de gestión inteligente del agua." },
-    { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico", years: 3 },
-    { name: "QGISRed", role: "Complementos de Redes", years: 4 },
-    { name: "AQUATOOL", role: "Desarrollo de Módulos", years: 6 },
-    { name: "RS MINERVE", role: "Optimización de Algoritmos", years: 3 },
-    { name: "CHJ", role: "Consultoría de Planificación", years: 4 }
+const waterProjects = [
+    { name: "Qatium", role: "Gestión inteligente del agua", badge: "Donde empezó todo" },
+    { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico" },
+    { name: "QGISRed", role: "Complementos de Redes" },
+    { name: "AQUATOOL", role: "Desarrollo de Módulos" },
+    { name: "RS MINERVE", role: "Optimización de Algoritmos" },
+    { name: "CHJ", role: "Consultoría de Planificación" }
+];
+
+const techProjects = [
+    { name: "Flywire", role: "Fintech" },
+    { name: "Nextail", role: "Retail" },
+    { name: "ValenciaPort", role: "Puertos" },
+    { name: "Puerto de Algeciras", role: "Puertos" },
+    { name: "Depuradora Quart Benager", role: "Utilities" },
+    { name: "Internet Freedom Festival", role: "Non-profit" }
 ];
 
 const publications = [
@@ -122,11 +131,11 @@ const Hero = () => (
                     Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
                 </p>
                 <div className="btn-group">
-                    <a href="#services" className="btn btn-primary">
-                        Ver Servicios <ArrowRight size={16} style={{ marginLeft: '0.25rem' }} />
+                    <a href="#identity" className="btn btn-primary">
+                        Conócenos <ArrowRight size={16} style={{ marginLeft: '0.25rem' }} />
                     </a>
-                    <a href="#team" className="btn btn-dark">
-                        Sobre Nosotros
+                    <a href="#contact" className="btn btn-dark">
+                        Hablemos
                     </a>
                 </div>
             </Motion.div>
@@ -139,6 +148,7 @@ const clientLogos = [
     { src: "logo-iiama.png", alt: "IIAMA", url: "https://iiama.upv.es" },
     { src: "logo-upv.png", alt: "Universitat Politècnica de València", url: "https://www.upv.es" },
     { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" },
+    { src: "logo-flywire.svg", alt: "Flywire", url: "https://flywire.com" },
 ];
 
 const ClientLogos = () => (
@@ -159,7 +169,7 @@ const ClientLogos = () => (
 const Identity = () => (
     <section id="identity" className="section section--dark section-identity">
         <div className="container benefits-layout">
-            <h2 className="section-title section-title--light">Nuestra Propuesta</h2>
+            <h2 className="section-title section-title--light">Qué nos hace diferentes</h2>
             <p className="section-intro section-intro--light">Combinamos disciplinas que rara vez van juntas. Esto nos permite abordar problemas desde ángulos que otros no pueden.</p>
             <div className="identity-cards">
                 <div className="identity-card">
@@ -231,56 +241,57 @@ const AboutSection = () => (
 
 const TeamSection = () => (
     <section id="team" className="section section-founders">
-        <div className="container">
-            <h2 className="section-title section-title--light">Nuestro Equipo</h2>
-            <div className="founders-grid" style={{ maxWidth: '900px', margin: '0 auto', justifyContent: 'center' }}>
+        <div className="container benefits-layout">
+            <h2 className="section-title section-title--light">Quiénes somos</h2>
+            <p className="section-intro section-intro--light">Cuatro perfiles híbridos. Dos vienen del agua, dos del software. En Qatium nos encontramos.</p>
+            <div className="founders-grid">
                 <div className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/edgar.jpg`} alt="Edgar Belda" />
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                    <div className="founder-header">
                         <h3>Edgar Belda</h3>
-                        <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', display: 'flex' }}>
+                        <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
                             <LinkedinIcon size={18} />
                         </a>
                     </div>
-                    <p>Hidráulica & Software Engineer</p>
-                </div>
-                <div className="founder">
-                    <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/nestor.jpg`} alt="Néstor Lerma" />
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                        <h3>Néstor Lerma</h3>
-                        <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', display: 'flex' }}>
-                            <LinkedinIcon size={18} />
-                        </a>
-                    </div>
-                    <p>Hidráulica & Software Engineer</p>
+                    <p className="founder-role">Full-stack · Hidráulica</p>
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                    <div className="founder-header">
                         <h3>Elena Melchor</h3>
-                        <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', display: 'flex' }}>
+                        <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
                             <LinkedinIcon size={18} />
                         </a>
                     </div>
-                    <p>Software Engineer</p>
+                    <p className="founder-role">Full-stack · Backend · GIS</p>
+                </div>
+                <div className="founder">
+                    <div className="founder-photo">
+                        <img src={`${import.meta.env.BASE_URL}assets/nestor.jpg`} alt="Néstor Lerma" />
+                    </div>
+                    <div className="founder-header">
+                        <h3>Néstor Lerma</h3>
+                        <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
+                            <LinkedinIcon size={18} />
+                        </a>
+                    </div>
+                    <p className="founder-role">Full-stack · Hidráulica</p>
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/vicente.jpg`} alt="Vicente Baixauli" />
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                    <div className="founder-header">
                         <h3>Vicente Baixauli</h3>
-                        <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', display: 'flex' }}>
+                        <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
                             <LinkedinIcon size={18} />
                         </a>
                     </div>
-                    <p>Software Engineer</p>
+                    <p className="founder-role">Full-stack · Plataforma · IA</p>
                 </div>
             </div>
         </div>
@@ -290,7 +301,7 @@ const TeamSection = () => (
 const ServicesGrid = () => (
     <section id="services" className="section section-benefits section-services">
         <div className="container benefits-layout">
-            <h2 className="section-title">Servicios</h2>
+            <h2 className="section-title">Qué hacemos</h2>
             <p className="benefits-intro">
                 Nuestras raíces están en el agua, pero nuestras capacidades van más allá. Perfiles híbridos que combinan ingeniería, desarrollo de software y especialización en datos.
             </p>
@@ -321,45 +332,55 @@ const ServicesGrid = () => (
 );
 
 const Portfolio = () => (
-    <section id="portfolio" className="section section-values">
-        <div className="container">
-            <div className="values-layout">
-                <div className="values-intro">
-                    <h2>Portfolio</h2>
-                    <p>
-                        Nuestra actividad está intrínsecamente ligada a la academia. Colaboramos activamente con el IIAMA y otros centros de referencia internacional.
-                    </p>
-                    <div className="values-list">
+    <section id="portfolio" className="section section-portfolio">
+        <div className="container benefits-layout">
+            <h2 className="section-title">Con quién trabajamos</h2>
+            <p className="benefits-intro">
+                Experiencia en proyectos donde el agua, el software y los datos se encuentran.
+            </p>
+
+            <div className="portfolio-columns">
+                <div className="portfolio-column">
+                    <h3 className="services-group-title">Sector del Agua</h3>
+                    <div className="portfolio-list">
+                        {waterProjects.map((p, i) => (
+                            <div key={i} className="portfolio-item">
+                                <div className="portfolio-item__left">
+                                    <span className="portfolio-item__name">{p.name}</span>
+                                    {p.badge && <span className="portfolio-item__badge">{p.badge}</span>}
+                                </div>
+                                <span className="portfolio-item__role">{p.role}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="portfolio-publications">
+                        <p className="portfolio-publications__label">Publicaciones</p>
                         {publications.map((p, i) => (
-                            <div key={i} className="value-item">
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                                    <BookOpen size={20} style={{ flexShrink: 0, color: 'var(--teal)', marginTop: '0.2rem' }} />
-                                    <span style={{ fontSize: '1rem', color: 'var(--text-main)' }}>{p}</span>
-                                </div>
-                                {i < publications.length - 1 && <hr className="value-divider" />}
+                            <div key={i} className="portfolio-publication">
+                                <BookOpen size={16} style={{ flexShrink: 0, color: 'var(--teal)' }} />
+                                <span>{p}</span>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="portfolio-highlights">
-                    <h3 className="portfolio-highlights__title">Proyectos Destacados</h3>
-                    <div className="portfolio-project-cards">
-                        {projects.map((p, i) => (
-                            <div key={i} className="portfolio-project-card">
-                                <div className="portfolio-project-card__info">
-                                    <div className="portfolio-project-card__name">{p.name}</div>
-                                    <div className="portfolio-project-card__role">{p.role}</div>
-                                </div>
-                                <span className="portfolio-project-card__years">{p.years} años</span>
+
+                <div className="portfolio-column">
+                    <h3 className="services-group-title">Desarrollo & Tecnología</h3>
+                    <div className="portfolio-list">
+                        {techProjects.map((p, i) => (
+                            <div key={i} className="portfolio-item">
+                                <span className="portfolio-item__name">{p.name}</span>
+                                <span className="portfolio-item__role">{p.role}</span>
                             </div>
                         ))}
                     </div>
-                    <div className="portfolio-highlights__cta">
-                        <Link to="/portfolio" className="btn btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                            Ver Portfolio Completo <ArrowRight size={18} />
-                        </Link>
-                    </div>
                 </div>
+            </div>
+
+            <div className="portfolio-cta">
+                <Link to="/portfolio" className="btn btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                    Ver Portfolio Completo <ArrowRight size={18} />
+                </Link>
             </div>
         </div>
     </section>
@@ -370,7 +391,7 @@ const Contact = () => (
         <div className="container">
             <div className="cta-layout cta-layout--center">
                 <div className="cta-content">
-                    <h2>¿Hablamos de agua?</h2>
+                    <h2>¿Hablamos?</h2>
                     <p>Estamos listos para tu próximo reto técnico.</p>
                     <a href="mailto:info@fluit.es" className="btn btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                         <Mail size={20} />
@@ -391,7 +412,6 @@ export const Home = () => {
             <Portfolio />
             <ClientLogos />
             <TeamSection />
-            <AboutSection />
             <Contact />
         </>
     );

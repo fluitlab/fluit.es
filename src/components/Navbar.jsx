@@ -33,10 +33,11 @@ export const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Inicio', href: '/' },
+        { name: 'Nosotros', href: '/#identity' },
         { name: 'Servicios', href: '/#services' },
-        { name: 'Portfolio', href: '/#portfolio' },
-        { name: 'Nosotros', href: '/#team' },
+        { name: 'Proyectos', href: '/#portfolio' },
+        { name: 'Equipo', href: '/#team' },
+        { name: 'Contacto', href: '/#contact' },
     ];
 
     useEffect(() => {
@@ -60,10 +61,12 @@ export const Navbar = () => {
 
     const handleNavClick = useCallback((e, href) => {
         setMobileMenuOpen(false);
-        if (href === '/' || href === '/#home') {
+        if (href === '/') {
+            e.preventDefault();
             if (location.pathname === '/') {
-                e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                navigate('/');
             }
             return;
         }
@@ -89,14 +92,6 @@ export const Navbar = () => {
                     {navLinks.map(link => (
                         <Link key={link.name} to={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.name}</Link>
                     ))}
-                    <Link
-                        to="/#contact"
-                        className="btn btn-primary"
-                        style={{ padding: '0.6rem 1.4rem', fontSize: '0.85rem' }}
-                        onClick={(e) => handleNavClick(e, '/#contact')}
-                    >
-                        Hablemos
-                    </Link>
                 </div>
 
                 <button
