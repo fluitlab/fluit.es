@@ -82,7 +82,7 @@ const techServices = [
 ];
 
 const waterProjects = [
-    { name: "Qatium", role: "Gestión inteligente del agua", badge: "Donde empezó todo" },
+    { name: "Qatium", role: "Gestión inteligente del agua" },
     { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico" },
     { name: "QGISRed", role: "Complementos de Redes" },
     { name: "AQUATOOL", role: "Desarrollo de Módulos" },
@@ -345,10 +345,7 @@ const Portfolio = () => (
                     <div className="portfolio-list">
                         {waterProjects.map((p, i) => (
                             <div key={i} className="portfolio-item">
-                                <div className="portfolio-item__left">
-                                    <span className="portfolio-item__name">{p.name}</span>
-                                    {p.badge && <span className="portfolio-item__badge">{p.badge}</span>}
-                                </div>
+                                <span className="portfolio-item__name">{p.name}</span>
                                 <span className="portfolio-item__role">{p.role}</span>
                             </div>
                         ))}

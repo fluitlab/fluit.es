@@ -120,13 +120,6 @@ export const Navbar = () => {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link
-                                to="/#contact"
-                                onClick={(e) => handleNavClick(e, '/#contact')}
-                                className="btn btn-primary"
-                            >
-                                Hablemos
-                            </Link>
                         </nav>
                     </Motion.div>
                 )}
