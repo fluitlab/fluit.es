@@ -10,17 +10,11 @@ import {
     Mail,
     ArrowRight,
     BookOpen,
-    Globe2,
     Users,
-    Lightbulb,
-    Award,
-    Terminal,
     Cpu,
-    Database,
     Target,
-    Eye,
-    Compass,
-    History
+    History,
+    BrainCircuit
 } from 'lucide-react';
 
 const LinkedinIcon = ({ size = 20 }) => (
@@ -41,30 +35,49 @@ const LinkedinIcon = ({ size = 20 }) => (
     </svg>
 );
 
-const services = [
+const waterServices = [
     {
         icon: <Droplets />,
         title: "Planificación Hídrica",
-        desc: "Proyectos de ingeniería y asesoramiento técnico integral. Modelos de gestión, calidad de aguas y precipitación-escorrentía.",
-        tags: ["Gestión Integral", "IIAMA", "Simulación Avanzada"]
+        desc: "Proyectos de ingeniería y asesoramiento técnico integral. Modelos de gestión, calidad de aguas y precipitación-escorrentía."
     },
     {
         icon: <Activity />,
-        title: "Abastecimiento & Redes",
-        desc: "Creación de modelos hidráulicos de redes de abastecimiento y saneamiento urbano, integración con Epanet, SWMM, WS Pro, ICM y QGISRed.",
-        tags: ["Abastecimiento", "Saneamiento", "Optimización"]
+        title: "Redes & Abastecimiento",
+        desc: "Creación de modelos hidráulicos de redes de abastecimiento y saneamiento urbano, integración con Epanet, SWMM, WS Pro, ICM y QGISRed."
     },
     {
         icon: <Code2 />,
-        title: "Programación a Medida",
-        desc: "Desarrollo de software específico (.NET, Typescript, Python, Ruby, R-Shiny) y hojas de cálculo (VBA) para ingeniería.",
-        tags: ["Plugins QGIS", "Algoritmos", "Software SSD"]
+        title: "Software para el Agua",
+        desc: "Desarrollo de software, plugins, automatizaciones y hojas de cálculo avanzadas adaptadas a las necesidades de cada proyecto."
     },
     {
         icon: <Cpu />,
-        title: "IA & Big Data",
-        desc: "Tratamiento de grandes volúmenes de datos y aplicación de Inteligencia Artificial para la predicción hídrica.",
-        tags: ["Análisis Predictivo", "Innovación"]
+        title: "IA & Datos Hídricos",
+        desc: "Tratamiento de datos, visualización, análisis GIS e inteligencia artificial para la toma de decisiones."
+    }
+];
+
+const techServices = [
+    {
+        icon: <Target />,
+        title: "Visión de Producto",
+        desc: "Pensamos en producto, no solo en código. Entendemos el negocio, el usuario y la tecnología que los conecta. Trabajamos como parte de tu equipo, no como proveedores externos."
+    },
+    {
+        icon: <BrainCircuit />,
+        title: "IA Nativa",
+        desc: "Usamos IA a diario para desarrollar mejor y más rápido. Te ayudamos a hacer lo mismo: integrar modelos, automatizar procesos y sacar partido real a estas herramientas."
+    },
+    {
+        icon: <Code2 />,
+        title: "Desarrollo a Medida",
+        desc: "Fullstack, backend, APIs, visualización de datos. Nos adaptamos a tu stack y a tu forma de trabajar."
+    },
+    {
+        icon: <Activity />,
+        title: "DevOps & Plataforma",
+        desc: "Infraestructura, CI/CD, monitorización. Mejoramos la experiencia de desarrollo de tu equipo."
     }
 ];
 
@@ -104,12 +117,9 @@ const Hero = () => (
                 animate={{ opacity: 1, y: 0 }}
                 className="hero-inner"
             >
-                <h1 className="hero-title">
-                    Modelación Hidráulica <br />
-                    & Consultoría Software
-                </h1>
+                <h1 className="hero-title">Ingeniería que <em>fluye</em></h1>
                 <p className="hero-p" style={{ color: 'var(--text-main)', marginBottom: '2rem' }}>
-                    Fluit nace para dar respuesta a la creciente demanda de digitalización en el sector del agua, fusionando la ingeniería tradicional con las tecnologías más innovadoras.
+                    Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
                 </p>
                 <div className="btn-group">
                     <a href="#services" className="btn btn-primary">
@@ -124,57 +134,53 @@ const Hero = () => (
     </header>
 );
 
-const Concept = () => (
-    <section id="concept" className="section section--dark section-concept">
+const clientLogos = [
+    { src: "logo-qatium.svg", alt: "Qatium", url: "https://qatium.com" },
+    { src: "logo-iiama.png", alt: "IIAMA", url: "https://iiama.upv.es" },
+    { src: "logo-upv.png", alt: "Universitat Politècnica de València", url: "https://www.upv.es" },
+    { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" },
+];
+
+const ClientLogos = () => (
+    <section className="section-client-logos">
         <div className="container">
-            <h2 className="section-title section-title--light">El Concepto Fluit</h2>
-            <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem', color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem' }}>
-                Nuestro nombre refleja nuestra identidad: la intersección perfecta entre el recurso hídrico y la capacidad analítica.
-            </p>
-            <div className="benefit-cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-                {[
-                    { icon: <Globe2 />, title: "Recursos Hídricos", desc: "Expertos en la gestión integral del ciclo del agua" },
-                    { icon: <Database />, title: "Inteligencia Artificial", desc: "Aplicamos algoritmos avanzados y Big Data" },
-                    { icon: <Lightbulb />, title: "Innovación Técnica", desc: "Desarrollo de herramientas de vanguardia" },
-                    { icon: <Terminal />, title: "Algoritmos", desc: "Programación orientada a la eficiencia hídrica" },
-                    { icon: <Users />, title: "Compromiso Social", desc: "Vinculados a la economía social como cooperativa" },
-                    { icon: <Award />, title: "Excelencia", desc: "Conectados con los principales centros de investigación" }
-                ].map((item, i) => (
-                    <div key={i} className="card card--pink">
-                        <div style={{ marginBottom: '1rem', color: 'var(--black)' }}>{item.icon}</div>
-                        <h3>{item.title}</h3>
-                        <p>{item.desc}</p>
-                    </div>
+            <p className="client-logos__label">Colaboramos con</p>
+            <div className="client-logos__row">
+                {clientLogos.map((client, i) => (
+                    <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
+                        <img src={`${import.meta.env.BASE_URL}assets/${client.src}`} alt={client.alt} className="client-logos__img" />
+                    </a>
                 ))}
             </div>
         </div>
     </section>
 );
 
-const MissionVision = () => (
-    <section className="section section-benefits section-mission-vision">
+const Identity = () => (
+    <section id="identity" className="section section--dark section-identity">
         <div className="container benefits-layout">
-            <div className="benefit-cards">
-                <div className="card card--pink">
-                    <div style={{ marginBottom: '1rem', color: 'var(--black)' }}><Target size={28} /></div>
-                    <h3>Misión</h3>
-                    <p>
-                        Desarrollar proyectos de ingeniería especializados en Recursos Hídricos y Medio Ambiente, apoyándonos en la creación y aplicación de herramientas innovadoras que optimicen la gestión y conservación de estos recursos.
-                    </p>
+            <h2 className="section-title section-title--light">Nuestra Propuesta</h2>
+            <p className="section-intro section-intro--light">Combinamos disciplinas que rara vez van juntas. Esto nos permite abordar problemas desde ángulos que otros no pueden.</p>
+            <div className="identity-cards">
+                <div className="identity-card">
+                    <div className="identity-card__icon"><Droplets size={28} /></div>
+                    <h3>Ingeniería Hidráulica</h3>
+                    <p>Tu consultora de recursos hídricos. Modelación, planificación y conexión directa con centros de investigación de referencia.</p>
                 </div>
-                <div className="card card--pink">
-                    <div style={{ marginBottom: '1rem', color: 'var(--black)' }}><Eye size={28} /></div>
-                    <h3>Visión</h3>
-                    <p>
-                        Impulsar la transformación sostenible en la gestión del agua, integrando tecnología y conocimiento para proteger y restaurar el equilibrio ambiental a largo plazo.
-                    </p>
+                <div className="identity-card">
+                    <div className="identity-card__icon"><Code2 size={28} /></div>
+                    <h3>Desarrollo de Software</h3>
+                    <p>Tu equipo de desarrollo externo. Creamos herramientas a medida que resuelven problemas reales.</p>
                 </div>
-                <div className="card card--pink">
-                    <div style={{ marginBottom: '1rem', color: 'var(--black)' }}><Compass size={28} /></div>
-                    <h3>Filosofía</h3>
-                    <p>
-                        Brindar un servicio personalizado y de alta calidad, adaptado a las necesidades específicas de cada cliente, garantizando soluciones efectivas y responsables.
-                    </p>
+                <div className="identity-card">
+                    <div className="identity-card__icon"><BrainCircuit size={28} /></div>
+                    <h3>IA & Datos</h3>
+                    <p>Especialistas en integrar inteligencia artificial y análisis de datos en tus procesos y productos.</p>
+                </div>
+                <div className="identity-card">
+                    <div className="identity-card__icon"><Users size={28} /></div>
+                    <h3>Cooperativa Social</h3>
+                    <p>Personas antes que beneficios. Priorizamos la calidad, el compromiso y las relaciones a largo plazo.</p>
                 </div>
             </div>
         </div>
@@ -286,19 +292,27 @@ const ServicesGrid = () => (
         <div className="container benefits-layout">
             <h2 className="section-title">Servicios</h2>
             <p className="benefits-intro">
-                Aportamos soluciones técnicas para organismos públicos y empresas privadas.
+                Nuestras raíces están en el agua, pero nuestras capacidades van más allá. Perfiles híbridos que combinan ingeniería, desarrollo de software y especialización en datos.
             </p>
+
+            <h3 className="services-group-title">Sector del Agua</h3>
             <div className="benefit-cards">
-                {services.map((s, i) => (
+                {waterServices.map((s, i) => (
                     <div key={i} className="card card--blue">
                         <div>{s.icon}</div>
                         <h3>{s.title}</h3>
                         <p>{s.desc}</p>
-                        <div className="tag-list">
-                            {s.tags.map(t => (
-                                <span key={t}>{t}</span>
-                            ))}
-                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <h3 className="services-group-title">Desarrollo & Tecnología</h3>
+            <div className="benefit-cards">
+                {techServices.map((s, i) => (
+                    <div key={i} className="card card--blue">
+                        <div>{s.icon}</div>
+                        <h3>{s.title}</h3>
+                        <p>{s.desc}</p>
                     </div>
                 ))}
             </div>
@@ -372,10 +386,10 @@ export const Home = () => {
     return (
         <>
             <Hero />
-            <Concept />
-            <MissionVision />
+            <Identity />
             <ServicesGrid />
             <Portfolio />
+            <ClientLogos />
             <TeamSection />
             <AboutSection />
             <Contact />

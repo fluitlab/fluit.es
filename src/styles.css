@@ -192,7 +192,7 @@ body {
 .btn-group {
   display: flex;
   gap: 2rem;
-  margin-left: 2rem;
+  justify-content: center;
 }
 
 .hero {
@@ -233,6 +233,7 @@ body {
 .hero-inner {
   text-align: center;
   max-width: 760px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
@@ -244,7 +245,7 @@ body {
 .hero-p {
   font-size: 1.25rem;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   max-width: 600px;
 }
 
@@ -277,6 +278,50 @@ body {
   transform: rotate(-15deg);
 }
 
+/* Client logos bar */
+.section-client-logos {
+  background: var(--white);
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.client-logos__label {
+  text-align: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+}
+
+.client-logos__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.client-logos__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.client-logos__item:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.client-logos__img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
 
 .about-grid {
   display: grid;
@@ -324,17 +369,49 @@ body {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.section-mission-vision {
-  background: var(--white);
-  border-top: none;
-  margin-top: 0;
+/* Identity section */
+.section-identity {
+  padding: 4rem 0;
 }
 
-.section-mission-vision .benefit-cards {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.identity-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.identity-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.identity-card__icon {
+  color: var(--teal);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.identity-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.identity-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .benefits-layout {
@@ -349,21 +426,26 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.benefits-intro {
+.benefits-intro,
+.section-intro {
   text-align: center;
   color: var(--text-muted);
   margin: 0 auto 1.5rem;
   max-width: 600px;
   font-size: 1.05rem;
+}
+
+.section-intro--light {
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
 .benefit-cards {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
   width: 100%;
-  max-width: 1400px;
+  max-width: 900px;
 }
 
 .card {
@@ -371,6 +453,7 @@ body {
   border-radius: var(--radius-lg);
   background: var(--gray-bg);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+  text-align: center;
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -423,18 +506,13 @@ body {
   background: rgba(44, 97, 125, 0.15);
 }
 
-/* Cards claras (concepto y servicios) */
-.section-concept .card,
+/* Cards claras (servicios) */
 .section-services .card {
   background: var(--white);
   color: var(--text-main);
 }
-.section-concept .card p,
 .section-services .card p {
   color: var(--text-muted);
-}
-.section-concept .card > div:first-child {
-  color: var(--text-main);
 }
 .section-services .card {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -442,6 +520,19 @@ body {
 
 .section-services .card > div:first-child {
   color: var(--teal);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.services-group-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin: 2.5rem 0 1.25rem;
+  text-align: center;
 }
 
 .section-founders {
@@ -841,20 +932,60 @@ body {
 .footer {
   background: var(--black);
   color: #bbbbc4;
-  padding: 1.4rem 0 1.6rem;
+  padding: 2.5rem 0 2rem;
   font-size: 0.9rem;
 }
 
-.footer-inner {
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-col {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-col p {
+  margin: 0;
+}
+
+.footer-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.footer-tagline {
+  color: #bbbbc4;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.footer-location {
+  color: #88889a;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.footer-col__heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #88889a;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
 .footer a {
   color: #f7f7ff;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .footer a:hover {
@@ -962,9 +1093,9 @@ body {
     text-align: center;
   }
 
-  .section-concept p {
-    margin-bottom: 1.5rem !important;
-    padding: 0 0.5rem;
+  .identity-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 }
 
@@ -986,7 +1117,7 @@ body {
 
   .hero {
     min-height: 80vh;
-    padding: 1.25rem 1rem 1.5rem;
+    padding: 4rem 1rem 1.5rem;
   }
 
   .hero-inner {
@@ -1004,8 +1135,15 @@ body {
   }
 
   .btn {
-    width: 100%;
-    max-width: 280px;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-group {
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 0;
+    justify-content: center;
   }
 
   .hero-graphics--left {
@@ -1031,7 +1169,6 @@ body {
     margin-bottom: 0.75rem;
   }
 
-  .section-concept .benefit-cards,
   .benefit-cards {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
@@ -1042,8 +1179,22 @@ body {
     min-height: unset;
   }
 
-  .section-mission-vision .benefit-cards {
+  .identity-cards {
     grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .identity-card {
+    padding: 1.25rem 1rem;
+    min-height: unset;
+  }
+
+  .client-logos__row {
+    gap: 1.5rem;
+  }
+
+  .section-client-logos {
+    padding: 1.5rem 0;
   }
 
   .founders-grid {
@@ -1092,9 +1243,13 @@ body {
     font-size: 1.5rem;
   }
 
-  .footer-inner {
-    flex-direction: column;
-    gap: 0.6rem;
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
     text-align: center;
+  }
+
+  .footer-col {
+    align-items: center;
   }
 }
