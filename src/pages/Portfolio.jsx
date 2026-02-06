@@ -39,19 +39,14 @@ const ProjectCard = ({ project, index }) => {
         <section className={`section portfolio-project-section ${isEven ? 'portfolio-project-section--alt' : ''}`}>
             <div className="container">
                 <div className="portfolio-grid">
-                    {/* Image Section */}
+                    {/* Image Section - Centered */}
                     {project.image && (
                         <Motion.div
-                            initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            style={{
-                                order: isEven ? 1 : 2,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
+                            className="portfolio-project__image-centered"
                         >
                             <div className="portfolio-project__image-wrap">
                                 <img
@@ -68,29 +63,40 @@ const ProjectCard = ({ project, index }) => {
                         </Motion.div>
                     )}
 
-                    {/* Content Section */}
+                    {/* Content Section - Automatic Flow into Columns on Desktop */}
                     <Motion.div
-                        initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        style={{
-                            order: isEven ? 2 : 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center'
-                        }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="portfolio-project__content-flow"
                     >
-                        <h2 className="portfolio-project__title">{project.title}</h2>
+                        {/* Title Group */}
+                        <div className="portfolio-project__title-group">
+                            <h2 className="portfolio-project__title">
+                                {project.title}
+                                {project.subtitle && (
+                                    <span style={{
+                                        display: 'block',
+                                        fontSize: '1.2rem',
+                                        fontWeight: 400,
+                                        color: 'var(--text-muted)',
+                                        marginTop: '0.5rem'
+                                    }}>
+                                        {project.subtitle}
+                                    </span>
+                                )}
+                            </h2>
 
-                        {project.duration && (
-                            <div className="portfolio-project__duration">
-                                Duración: {project.duration}
-                            </div>
-                        )}
+                            {project.duration && (
+                                <div className="portfolio-project__duration">
+                                    Duración: {project.duration}
+                                </div>
+                            )}
+                        </div>
 
                         {project.role && (
-                            <div className="portfolio-project__role-block">
+                            <div className="portfolio-project__block">
                                 <span className="portfolio-project__role-label">Rol:</span>
                                 <p className="portfolio-project__role-text">{project.role}</p>
                             </div>
@@ -149,15 +155,17 @@ const ProjectCard = ({ project, index }) => {
                         )}
 
                         {project.link && (
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-primary portfolio-project__link"
-                            >
-                                Más información
-                                <ExternalLink size={16} />
-                            </a>
+                            <div className="portfolio-project__block" style={{ marginTop: '0.5rem' }}>
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-primary portfolio-project__link"
+                                >
+                                    Más información
+                                    <ExternalLink size={16} />
+                                </a>
+                            </div>
                         )}
                     </Motion.div>
                 </div>
