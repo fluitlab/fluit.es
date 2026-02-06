@@ -52,12 +52,7 @@ const ProjectCard = ({ project, index }) => {
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        display: 'block',
-                                        objectFit: 'cover'
-                                    }}
+                                    className="portfolio-project__img"
                                 />
                             </div>
                         </Motion.div>
