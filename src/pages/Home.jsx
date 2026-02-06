@@ -84,7 +84,7 @@ const techServices = [
 const waterProjects = [
     { name: "Qatium", role: "Gestión inteligente del agua" },
     { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico" },
-    { name: "QGISRed", role: "Complementos de Redes" },
+    { name: "QGISRed", role: "Redes de abastecimiento avananzadas" },
     { name: "AQUATOOL", role: "Desarrollo de Módulos" },
     { name: "RS MINERVE", role: "Optimización de Algoritmos" },
     { name: "CHJ", role: "Consultoría de Planificación" }
