@@ -250,54 +250,46 @@ const TeamSection = () => (
             <h2 className="section-title section-title--light">Quiénes somos</h2>
             <p className="section-intro section-intro--light">Cuatro perfiles híbridos. Dos vienen del agua, dos del software. En Qatium nos encontramos.</p>
             <div className="founders-grid">
-                <div className="founder">
+                <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/edgar.jpg`} alt="Edgar Belda" />
                     </div>
                     <div className="founder-header">
                         <h3>Edgar Belda</h3>
-                        <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
-                            <LinkedinIcon size={18} />
-                        </a>
+                        <LinkedinIcon size={18} />
                     </div>
                     <p className="founder-role">Full-stack · Hidráulica</p>
-                </div>
-                <div className="founder">
+                </a>
+                <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
                     <div className="founder-header">
                         <h3>Elena Melchor</h3>
-                        <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
-                            <LinkedinIcon size={18} />
-                        </a>
+                        <LinkedinIcon size={18} />
                     </div>
                     <p className="founder-role">Full-stack · Backend · GIS</p>
-                </div>
-                <div className="founder">
+                </a>
+                <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/nestor.png`} alt="Néstor Lerma" />
                     </div>
                     <div className="founder-header">
                         <h3>Néstor Lerma</h3>
-                        <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
-                            <LinkedinIcon size={18} />
-                        </a>
+                        <LinkedinIcon size={18} />
                     </div>
                     <p className="founder-role">Full-stack · Hidráulica</p>
-                </div>
-                <div className="founder">
+                </a>
+                <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`${import.meta.env.BASE_URL}assets/vicente.jpg`} alt="Vicente Baixauli" />
                     </div>
                     <div className="founder-header">
                         <h3>Vicente Baixauli</h3>
-                        <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder-linkedin">
-                            <LinkedinIcon size={18} />
-                        </a>
+                        <LinkedinIcon size={18} />
                     </div>
                     <p className="founder-role">Full-stack · Plataforma · IA</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
