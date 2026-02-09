@@ -74,7 +74,7 @@ export const Navbar = () => {
         const id = href.replace(/^\/#/, '');
         if (location.pathname === '/') {
             e.preventDefault();
-            window.history.replaceState(null, '', `/#${id}`);
+            window.history.replaceState(null, '', `${import.meta.env.BASE_URL}#${id}`);
             scrollToSection(id);
         } else {
             navigate(`/#${id}`);
