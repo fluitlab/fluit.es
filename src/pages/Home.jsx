@@ -11,10 +11,10 @@ import {
     ArrowRight,
     BookOpen,
     Users,
-    Cpu,
     Target,
     History,
-    BrainCircuit
+    BrainCircuit,
+    Cpu
 } from 'lucide-react';
 
 const LinkedinIcon = ({ size = 20 }) => (
@@ -39,22 +39,22 @@ const waterServices = [
     {
         icon: <Droplets />,
         title: "Planificación Hídrica",
-        desc: "Proyectos de ingeniería y asesoramiento técnico integral. Modelos de gestión, calidad de aguas y precipitación-escorrentía."
+        desc: "Modelos, calidad y escorrentía."
     },
     {
         icon: <Activity />,
         title: "Redes & Abastecimiento",
-        desc: "Creación de modelos hidráulicos de redes de abastecimiento y saneamiento urbano, integración con Epanet, SWMM, WS Pro, ICM y QGISRed."
+        desc: "Modelos hidráulicos y saneamiento."
     },
     {
         icon: <Code2 />,
         title: "Software para el Agua",
-        desc: "Desarrollo de software, plugins, automatizaciones y hojas de cálculo avanzadas adaptadas a las necesidades de cada proyecto."
+        desc: "Herramientas y automatizaciones a medida."
     },
     {
         icon: <Cpu />,
         title: "IA & Datos Hídricos",
-        desc: "Tratamiento de datos, visualización, análisis GIS e inteligencia artificial para la toma de decisiones."
+        desc: "Datos, GIS e IA aplicada."
     }
 ];
 
@@ -62,29 +62,29 @@ const techServices = [
     {
         icon: <Target />,
         title: "Visión de Producto",
-        desc: "Pensamos en producto, no solo en código. Entendemos el negocio, el usuario y la tecnología que los conecta. Trabajamos como parte de tu equipo, no como proveedores externos."
+        desc: "Negocio, usuario y tecnología."
     },
     {
         icon: <BrainCircuit />,
         title: "IA Nativa",
-        desc: "Usamos IA a diario para desarrollar mejor y más rápido. Te ayudamos a hacer lo mismo: integrar modelos, automatizar procesos y sacar partido real a estas herramientas."
+        desc: "Modelos y automatización."
     },
     {
         icon: <Code2 />,
         title: "Desarrollo a Medida",
-        desc: "Fullstack, backend, APIs, visualización de datos. Nos adaptamos a tu stack y a tu forma de trabajar."
+        desc: "Fullstack, APIs y datos."
     },
     {
         icon: <Activity />,
         title: "DevOps & Plataforma",
-        desc: "Infraestructura, CI/CD, monitorización. Mejoramos la experiencia de desarrollo de tu equipo."
+        desc: "Infraestructura y CI/CD."
     }
 ];
 
 const waterProjects = [
     { name: "Qatium", role: "Gestión inteligente del agua" },
     { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico" },
-    { name: "QGISRed", role: "Redes de abastecimiento avananzadas" },
+    { name: "QGISRed", role: "Redes de abastecimiento avanzadas" },
     { name: "AQUATOOL", role: "Desarrollo de Módulos" },
     { name: "RS MINERVE", role: "Optimización de Algoritmos" },
     { name: "CHJ", role: "Consultoría de Planificación" }
@@ -126,8 +126,9 @@ const Hero = () => (
                 animate={{ opacity: 1, y: 0 }}
                 className="hero-inner"
             >
+                <span className="hero-eyebrow">Cooperativa de ingeniería + software</span>
                 <h1 className="hero-title">Ingeniería que <em>fluye</em></h1>
-                <p className="hero-p" style={{ color: 'var(--text-main)', marginBottom: '2rem' }}>
+                <p className="hero-p" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
                     Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
                 </p>
                 <div className="btn-group">
@@ -147,20 +148,24 @@ const clientLogos = [
     { src: "logo-qatium.svg", alt: "Qatium", url: "https://qatium.com" },
     { src: "logo-iiama.png", alt: "IIAMA", url: "https://iiama.upv.es" },
     { src: "logo-upv.png", alt: "Universitat Politècnica de València", url: "https://www.upv.es" },
-    { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" },
-    { src: "logo-flywire.svg", alt: "Flywire", url: "https://flywire.com" },
+    { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" }
 ];
 
 const ClientLogos = () => (
-    <section className="section-client-logos">
+    <section className="section section-client-logos">
         <div className="container">
-            <p className="client-logos__label">Colaboramos con</p>
+            <p className="client-logos__label">Hemos colaborado con</p>
             <div className="client-logos__row">
                 {clientLogos.map((client, i) => (
                     <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
                         <img src={`${import.meta.env.BASE_URL}assets/${client.src}`} alt={client.alt} className="client-logos__img" />
                     </a>
                 ))}
+            <div className="portfolio-cta">
+                <Link to="/portfolio" className="btn btn-dark portfolio-cta__btn">
+                    Ver Portfolio Completo <ArrowRight size={18} aria-hidden />
+                </Link>
+            </div>
             </div>
         </div>
     </section>
@@ -198,7 +203,7 @@ const Identity = () => (
 );
 
 const AboutSection = () => (
-    <section id="about" className="section section--dark">
+    <section id="about" className="section section--dark section-about">
         <div className="container">
             <div className="about-grid">
                 <div className="about-text">
@@ -299,33 +304,51 @@ const TeamSection = () => (
 );
 
 const ServicesGrid = () => (
-    <section id="services" className="section section-benefits section-services">
+    <section id="services" className="section section-benefits section-services section--white">
         <div className="container benefits-layout">
             <h2 className="section-title">Qué hacemos</h2>
             <p className="benefits-intro">
-                Nuestras raíces están en el agua, pero nuestras capacidades van más allá. Perfiles híbridos que combinan ingeniería, desarrollo de software y especialización en datos.
+                Agua, software e IA. Equipo híbrido y directo a resultados.
             </p>
 
-            <h3 className="services-group-title">Sector del Agua</h3>
-            <div className="benefit-cards">
-                {waterServices.map((s, i) => (
-                    <div key={i} className="card card--blue">
-                        <div>{s.icon}</div>
-                        <h3>{s.title}</h3>
-                        <p>{s.desc}</p>
+            <div className="services-bands">
+                <article className="services-band">
+                    <header className="services-band__meta">
+                        <span className="services-band__eyebrow">Agua</span>
+                        <h3>Ingeniería hídrica aplicada</h3>
+                        <p>Planificación y modelos para decisiones claras.</p>
+                    </header>
+                    <div className="services-band__grid">
+                        {waterServices.map((s, i) => (
+                            <div key={i} className="services-chip">
+                                <div className="services-chip__icon">{s.icon}</div>
+                                <div>
+                                    <h4>{s.title}</h4>
+                                    <p>{s.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                </article>
 
-            <h3 className="services-group-title">Desarrollo & Tecnología</h3>
-            <div className="benefit-cards">
-                {techServices.map((s, i) => (
-                    <div key={i} className="card card--blue">
-                        <div>{s.icon}</div>
-                        <h3>{s.title}</h3>
-                        <p>{s.desc}</p>
+                <article className="services-band services-band--alt">
+                    <header className="services-band__meta">
+                        <span className="services-band__eyebrow">Tecnología</span>
+                        <h3>Producto, software e IA</h3>
+                        <p>Producto y datos listos para escalar.</p>
+                    </header>
+                    <div className="services-band__grid">
+                        {techServices.map((s, i) => (
+                            <div key={i} className="services-chip">
+                                <div className="services-chip__icon">{s.icon}</div>
+                                <div>
+                                    <h4>{s.title}</h4>
+                                    <p>{s.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </article>
             </div>
         </div>
     </section>
@@ -333,50 +356,62 @@ const ServicesGrid = () => (
 
 const Portfolio = () => (
     <section id="portfolio" className="section section-portfolio">
-        <div className="container benefits-layout">
-            <h2 className="section-title">Con quién trabajamos</h2>
-            <p className="benefits-intro">
-                Experiencia en proyectos donde el agua, el software y los datos se encuentran.
-            </p>
+        <div className="container portfolio-container">
+            <header className="portfolio-header">
+                <h2 className="section-title portfolio-title">Con quién trabajamos</h2>
+                <p className="portfolio-intro">
+                    Experiencia en proyectos donde el agua, el software y los datos se encuentran.
+                </p>
+            </header>
 
             <div className="portfolio-columns">
-                <div className="portfolio-column">
-                    <h3 className="services-group-title">Sector del Agua</h3>
-                    <div className="portfolio-list">
+                <div className="portfolio-card portfolio-card--water">
+                    <div className="portfolio-card__header">
+                        <span className="portfolio-card__icon" aria-hidden><Droplets size={20} /></span>
+                        <h3 className="portfolio-card__title">Sector del Agua</h3>
+                    </div>
+                    <ul className="portfolio-list">
                         {waterProjects.map((p, i) => (
-                            <div key={i} className="portfolio-item">
+                            <li key={i} className="portfolio-item">
                                 <span className="portfolio-item__name">{p.name}</span>
                                 <span className="portfolio-item__role">{p.role}</span>
-                            </div>
+                            </li>
                         ))}
-                    </div>
-                    <div className="portfolio-publications">
-                        <p className="portfolio-publications__label">Publicaciones</p>
-                        {publications.map((p, i) => (
-                            <div key={i} className="portfolio-publication">
-                                <BookOpen size={16} style={{ flexShrink: 0, color: 'var(--teal)' }} />
-                                <span>{p}</span>
-                            </div>
-                        ))}
-                    </div>
+                    </ul>
                 </div>
 
-                <div className="portfolio-column">
-                    <h3 className="services-group-title">Desarrollo & Tecnología</h3>
-                    <div className="portfolio-list">
-                        {techProjects.map((p, i) => (
-                            <div key={i} className="portfolio-item">
-                                <span className="portfolio-item__name">{p.name}</span>
-                                <span className="portfolio-item__role">{p.role}</span>
-                            </div>
-                        ))}
+                <div className="portfolio-card portfolio-card--tech">
+                    <div className="portfolio-card__header">
+                        <span className="portfolio-card__icon" aria-hidden><Code2 size={20} /></span>
+                        <h3 className="portfolio-card__title">Desarrollo & Tecnología</h3>
                     </div>
+                    <ul className="portfolio-list">
+                        {techProjects.map((p, i) => (
+                            <li key={i} className="portfolio-item">
+                                <span className="portfolio-item__name">{p.name}</span>
+                                <span className="portfolio-item__tag">{p.role}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
 
+            <div className="portfolio-publications-block">
+                <h3 className="portfolio-publications-block__title">
+                    <BookOpen size={18} aria-hidden />
+                    Publicaciones
+                </h3>
+                <ul className="portfolio-publications-list">
+                    {publications.map((p, i) => (
+                        <li key={i} className="portfolio-publication-item">
+                            <span className="portfolio-publication-item__text">{p}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <div className="portfolio-cta">
-                <Link to="/portfolio" className="btn btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                    Ver Portfolio Completo <ArrowRight size={18} />
+                <Link to="/portfolio" className="btn btn-dark portfolio-cta__btn">
+                    Ver Portfolio Completo <ArrowRight size={18} aria-hidden />
                 </Link>
             </div>
         </div>
@@ -384,7 +419,7 @@ const Portfolio = () => (
 );
 
 const Contact = () => (
-    <section id="contact" className="section section-cta">
+    <section id="contact" className="section section-cta section-contact">
         <div className="container">
             <div className="cta-layout cta-layout--center">
                 <div className="cta-content">
@@ -406,8 +441,8 @@ export const Home = () => {
             <Hero />
             <Identity />
             <ServicesGrid />
-            <Portfolio />
             <ClientLogos />
+            {/* <Portfolio /> */}
             <TeamSection />
             <Contact />
         </>

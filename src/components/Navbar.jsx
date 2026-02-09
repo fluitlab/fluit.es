@@ -84,8 +84,8 @@ export const Navbar = () => {
     return (
         <nav className={`nav-wrapper ${scrolled ? 'scrolled' : ''}`}>
             <div className="container nav-content">
-                <Link to="/" className="navbar-logo-text" aria-label="Fluit - Inicio">
-                    FLUIT
+                <Link to="/" className="navbar-logo" aria-label="Fluit - Inicio">
+                    <img src={`${import.meta.env.BASE_URL}assets/fluit-negro.svg`} alt="Fluit" className="navbar-logo__img" />
                 </Link>
 
                 <div className="nav-links">

@@ -4,7 +4,7 @@ export const Footer = () => (
     <footer className="footer">
         <div className="container footer-grid">
             <div className="footer-col">
-                <p className="footer-brand">FLUIT</p>
+                <img src={`${import.meta.env.BASE_URL}assets/fluit-blanco.svg`} alt="Fluit" className="footer-logo" />
                 <p className="footer-tagline">Ingeniería que fluye</p>
                 <p className="footer-subtag">Hidráulica · Software · IA</p>
                 <p className="footer-location">Valencia, España</p>
