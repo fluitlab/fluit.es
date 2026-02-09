@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Capa_2"
+   data-name="Capa 2"
+   viewBox="0 0 93.52325 90.192733"
+   version="1.1"
+   sodipodi:docname="favicon.svg"
+   width="93.523254"
+   height="90.192734"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.9597953"
+     inkscape:cx="-126.06855"
+     inkscape:cy="35.42422"
+     inkscape:window-width="1278"
+     inkscape:window-height="1360"
+     inkscape:window-x="-7"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Capa_2" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #1d1d1b;
+      }
+    </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <rect
+         style="fill:none;stroke:#ffffff;stroke-width:8.17512"
+         id="rect5"
+         width="121.901"
+         height="91.686211"
+         x="222.00906"
+         y="-16.767502" />
+    </clipPath>
+  </defs>
+  <polygon
+     class="cls-1"
+     points="232.92,47.29 232.92,36.35 232.92,30.88 211.04,30.88 211.04,36.35 211.04,47.29 "
+     id="polygon1"
+     transform="translate(-211.03,-19.395359)" />
+  <polygon
+     class="cls-1"
+     points="272.79,107.47 272.79,129.35 272.79,151.23 294.68,151.23 294.68,129.35 294.68,107.47 294.68,85.59 294.68,63.7 304.64,63.7 304.64,58.23 304.64,47.29 294.68,47.29 294.68,36.35 294.68,30.88 272.79,30.88 272.79,36.35 272.79,47.29 252.86,47.29 252.86,58.23 252.86,63.7 272.79,63.7 272.79,85.59 "
+     id="polygon2"
+     transform="translate(-211.11675,-30.88)"
+     clip-path="url(#clipPath4)" />
+  <path
+     class="cls-1"
+     d="m 61.76,42.902731 v 5.47 c 0,10.99 -8.94,19.94 -19.94,19.94 -11,0 -19.94,-8.94 -19.94,-19.94 v -5.47 0 c 0,0 -21.88,0 -21.88,0 v 0 5.47 c 0,23.06 18.76,41.82 41.82,41.82 23.06,0 41.82,-18.76 41.82,-41.82 v -5.47 0 z"
+     id="path3" />
+</svg>
