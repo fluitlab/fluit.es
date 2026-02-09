@@ -35,7 +35,7 @@ export const Navbar = () => {
     const navLinks = [
         { name: 'Nosotros', href: '/#identity' },
         { name: 'Servicios', href: '/#services' },
-        { name: 'Proyectos', href: '/#portfolio' },
+        { name: 'Portfolio', href: '/portfolio' },
         { name: 'Equipo', href: '/#team' },
         { name: 'Contacto', href: '/#contact' },
     ];

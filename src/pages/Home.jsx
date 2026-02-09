@@ -350,6 +350,22 @@ const ServicesGrid = () => (
                     </div>
                 </article>
             </div>
+
+            <div className="services-clients">
+                <p className="client-logos__label">Hemos colaborado con</p>
+                <div className="client-logos__row">
+                    {clientLogos.map((client, i) => (
+                        <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
+                            <img src={`${import.meta.env.BASE_URL}assets/${client.src}`} alt={client.alt} className="client-logos__img" />
+                        </a>
+                    ))}
+                </div>
+                <div className="portfolio-cta">
+                    <Link to="/portfolio" className="btn btn-dark portfolio-cta__btn">
+                        Ver Portfolio Completo <ArrowRight size={18} aria-hidden />
+                    </Link>
+                </div>
+            </div>
         </div>
     </section>
 );
@@ -441,8 +457,6 @@ export const Home = () => {
             <Hero />
             <Identity />
             <ServicesGrid />
-            <ClientLogos />
-            {/* <Portfolio /> */}
             <TeamSection />
             <Contact />
         </>
