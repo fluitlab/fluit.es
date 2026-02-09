@@ -1339,6 +1339,46 @@ a {
   padding: 0 0 4rem;
 }
 
+/* Filter bar */
+.pfilter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1.5rem 0 2rem;
+}
+
+.pfilter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 28, 36, 0.12);
+  background: #ffffff;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pfilter-chip:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.pfilter-chip--active {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.pfilter-chip--active:hover {
+  background: #158b86;
+  color: #ffffff;
+}
+
 .pcard-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1378,14 +1418,15 @@ a {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex: 1;
 }
 
 .pcard__header {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .pcard__title {
@@ -1406,7 +1447,7 @@ a {
 .pcard__team {
   display: flex;
   align-items: center;
-  gap: 0;
+  flex-shrink: 0;
 }
 
 .pcard__avatar {
@@ -1444,12 +1485,15 @@ a {
   color: var(--text-main);
   margin: 0;
   line-height: 1.6;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(11, 28, 36, 0.06);
 }
 
 .pcard__section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 0.35rem;
 }
 
 .pcard__section-title {
