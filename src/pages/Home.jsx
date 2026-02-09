@@ -271,7 +271,7 @@ const TeamSection = () => (
                 </div>
                 <div className="founder">
                     <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/nestor.jpg`} alt="Néstor Lerma" />
+                        <img src={`${import.meta.env.BASE_URL}assets/nestor.png`} alt="Néstor Lerma" />
                     </div>
                     <div className="founder-header">
                         <h3>Néstor Lerma</h3>
