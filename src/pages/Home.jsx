@@ -1,39 +1,19 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion';
 import pecesVideo from '../assets/peces.mp4';
-import waterSocialIcon from '../assets/9947760.png';
 import {
     Droplets,
     Code2,
     Activity,
     Mail,
     ArrowRight,
-    BookOpen,
     Users,
     Target,
-    History,
     BrainCircuit,
-    Cpu
+    Cpu,
+    MessagesSquare
 } from 'lucide-react';
-
-const LinkedinIcon = ({ size = 20 }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect width="4" height="12" x="2" y="9" />
-        <circle cx="4" cy="4" r="2" />
-    </svg>
-);
 
 const waterServices = [
     {
@@ -81,29 +61,11 @@ const techServices = [
     }
 ];
 
-const waterProjects = [
-    { name: "Qatium", role: "Gestión inteligente del agua" },
-    { name: "Water4Cast", role: "Modelos de Pronóstico Hidrológico" },
-    { name: "QGISRed", role: "Redes de abastecimiento avanzadas" },
-    { name: "AQUATOOL", role: "Desarrollo de Módulos" },
-    { name: "RS MINERVE", role: "Optimización de Algoritmos" },
-    { name: "CHJ", role: "Consultoría de Planificación" }
-];
-
-const techProjects = [
-    { name: "Flywire", role: "Fintech" },
-    { name: "Nextail", role: "Retail" },
-    { name: "ValenciaPort", role: "Puertos" },
-    { name: "Puerto de Algeciras", role: "Puertos" },
-    { name: "Depuradora Quart Benager", role: "Utilities" },
-    { name: "Internet Freedom Festival", role: "Non-profit" }
-];
-
-const publications = [
-    "Algoritmos Genéticos en la Optimización de Redes",
-    "Modelación de Calidad en Acuíferos Complejos",
-    "Sistemas de Alerta Temprana en Cuencas Mediterráneas",
-    "Integración de GIS y Modelos Hidráulicos Dinámicos"
+const clientLogos = [
+    { src: "logo-qatium.svg", alt: "Qatium", url: "https://qatium.com" },
+    { src: "logo-iiama.png", alt: "IIAMA", url: "https://iiama.upv.es" },
+    { src: "logo-upv.png", alt: "Universitat Politècnica de València", url: "https://www.upv.es" },
+    { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" }
 ];
 
 const Hero = () => (
@@ -144,33 +106,6 @@ const Hero = () => (
     </header>
 );
 
-const clientLogos = [
-    { src: "logo-qatium.svg", alt: "Qatium", url: "https://qatium.com" },
-    { src: "logo-iiama.png", alt: "IIAMA", url: "https://iiama.upv.es" },
-    { src: "logo-upv.png", alt: "Universitat Politècnica de València", url: "https://www.upv.es" },
-    { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" }
-];
-
-const ClientLogos = () => (
-    <section className="section section-client-logos">
-        <div className="container">
-            <p className="client-logos__label">Hemos colaborado con</p>
-            <div className="client-logos__row">
-                {clientLogos.map((client, i) => (
-                    <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
-                        <img src={`${import.meta.env.BASE_URL}assets/${client.src}`} alt={client.alt} className="client-logos__img" />
-                    </a>
-                ))}
-            <div className="portfolio-cta">
-                <Link to="/portfolio" className="btn btn-dark portfolio-cta__btn">
-                    Ver Portfolio Completo <ArrowRight size={18} aria-hidden />
-                </Link>
-            </div>
-            </div>
-        </div>
-    </section>
-);
-
 const Identity = () => (
     <section id="identity" className="section section--dark section-identity">
         <div className="container benefits-layout">
@@ -196,48 +131,6 @@ const Identity = () => (
                     <div className="identity-card__icon"><Users size={28} /></div>
                     <h3>Cooperativa Social</h3>
                     <p>Personas antes que beneficios. Priorizamos la calidad, el compromiso y las relaciones a largo plazo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-);
-
-const AboutSection = () => (
-    <section id="about" className="section section--dark section-about">
-        <div className="container">
-            <div className="about-grid">
-                <div className="about-text">
-                    <h2>Ingeniería con Valor Social</h2>
-                    <p>
-                        Fluit es una <strong>Cooperativa de Trabajo Asociado</strong> fundada sobre los principios de responsabilidad, excelencia técnica y compromiso con la gestión sostenible del agua.
-                    </p>
-                    <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                            <div style={{ flexShrink: 0, color: 'var(--white)' }}><History size={24} /></div>
-                            <div>
-                                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', color: 'var(--white)' }}>Nuestra Historia</h3>
-                                <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                                    Constituida en 2018, surge de la unión de ingenieros apasionados por la hidráulica y la programación para transferir conocimiento a la sociedad.
-                                </p>
-                            </div>
-                        </div>
-                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                            <div style={{ flexShrink: 0, color: 'var(--white)' }}><Target size={24} /></div>
-                            <div>
-                                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', color: 'var(--white)' }}>Misión Cooperativa</h3>
-                                <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                                    Priorizamos a las personas, buscando la estabilidad profesional y la creación de valor real para nuestros clientes y el medio ambiente.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="about-media">
-                    <img
-                        src={waterSocialIcon}
-                        alt="Ingeniería con valor social: agua y compromiso"
-                        className="about-media__img"
-                    />
                 </div>
             </div>
         </div>
@@ -362,85 +255,136 @@ const ServicesGrid = () => (
     </section>
 );
 
-const Portfolio = () => (
-    <section id="portfolio" className="section section-portfolio">
-        <div className="container portfolio-container">
-            <header className="portfolio-header">
-                <h2 className="section-title portfolio-title">Con quién trabajamos</h2>
-                <p className="portfolio-intro">
-                    Experiencia en proyectos donde el agua, el software y los datos se encuentran.
-                </p>
-            </header>
+const Contact = () => {
+    const formRef = useRef(null);
+    const [status, setStatus] = useState({ state: 'idle', message: '' }); // idle | sending | success | error
 
-            <div className="portfolio-columns">
-                <div className="portfolio-card portfolio-card--water">
-                    <div className="portfolio-card__header">
-                        <span className="portfolio-card__icon" aria-hidden><Droplets size={20} /></span>
-                        <h3 className="portfolio-card__title">Sector del Agua</h3>
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const honey = formRef.current?.querySelector('input[name="website"]')?.value;
+        if (honey) return;
+
+        const formId = "xvzbgdnz";
+        if (!formId) {
+            setStatus({
+                state: 'error',
+                message: 'Falta configurar Formspree (VITE_FORMSPREE_FORM_ID).'
+            });
+            return;
+        }
+
+        try {
+            setStatus({ state: 'sending', message: '' });
+            const res = await fetch(`https://formspree.io/f/${formId}`, {
+                method: 'POST',
+                body: new FormData(formRef.current),
+                headers: { Accept: 'application/json' }
+            });
+            if (!res.ok) throw new Error('Formspree error');
+            formRef.current?.reset();
+            setStatus({ state: 'success', message: '¡Gracias! Te escribimos en breve.' });
+        } catch (err) {
+            setStatus({
+                state: 'error',
+                message: 'No se pudo enviar. Prueba de nuevo o escríbenos a info@fluit.es.'
+            });
+        }
+    };
+
+    return (
+        <section id="contact" className="section section-cta section-contact">
+            <div className="container">
+                <div className="cta-layout contact-layout">
+                    <div className="cta-content contact-intro">
+                        <h2>¿Hablamos?</h2>
+                        <p>Cuéntanos qué necesitas y te respondemos rápido,</p>
+                        <a href="mailto:info@fluit.es" className="contact-form__fallback">
+                                    o escríbenos a <strong>info@fluit.es</strong>
+                                </a>
                     </div>
-                    <ul className="portfolio-list">
-                        {waterProjects.map((p, i) => (
-                            <li key={i} className="portfolio-item">
-                                <span className="portfolio-item__name">{p.name}</span>
-                                <span className="portfolio-item__role">{p.role}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                    <div className="contact-form-wrap">
+                        <form ref={formRef} className="contact-form" onSubmit={onSubmit}>
+                            <div className="contact-form__grid">
+                                <label className="contact-field">
+                                    <span className="contact-field__label">Nombre</span>
+                                    <input
+                                        name="from_name"
+                                        type="text"
+                                        autoComplete="name"
+                                        required
+                                        maxLength={80}
+                                        placeholder="Tu nombre"
+                                    />
+                                </label>
 
-                <div className="portfolio-card portfolio-card--tech">
-                    <div className="portfolio-card__header">
-                        <span className="portfolio-card__icon" aria-hidden><Code2 size={20} /></span>
-                        <h3 className="portfolio-card__title">Desarrollo & Tecnología</h3>
+                                <label className="contact-field">
+                                    <span className="contact-field__label">Email</span>
+                                    <input
+                                        name="_replyto"
+                                        type="email"
+                                        autoComplete="email"
+                                        required
+                                        maxLength={120}
+                                        placeholder="tu@email.com"
+                                    />
+                                </label>
+
+                                <label className="contact-field contact-field--full">
+                                    <span className="contact-field__label">Mensaje</span>
+                                    <textarea
+                                        name="message"
+                                        rows={4}
+                                        required
+                                        maxLength={1200}
+                                        placeholder="En qué podemos ayudarte…"
+                                    />
+                                </label>
+
+                                <input className="contact-form__hp" type="text" name="website" tabIndex={-1} autoComplete="off" />
+                            </div>
+
+                            <div className="contact-form__actions">
+                                <button className="btn btn-dark" type="submit" disabled={status.state === 'sending'}>
+                                    <Mail size={20} />
+                                    {status.state === 'sending' ? 'Enviando…' : 'Enviar'}
+                                </button>
+                            </div>
+
+                            {status.state !== 'idle' && (
+                                <p
+                                    className={`contact-form__notice ${
+                                        status.state === 'success' ? 'contact-form__notice--ok' : ''
+                                    } ${status.state === 'error' ? 'contact-form__notice--err' : ''}`}
+                                    role={status.state === 'error' ? 'alert' : 'status'}
+                                >
+                                    {status.message}
+                                </p>
+                            )}
+                        </form>
                     </div>
-                    <ul className="portfolio-list">
-                        {techProjects.map((p, i) => (
-                            <li key={i} className="portfolio-item">
-                                <span className="portfolio-item__name">{p.name}</span>
-                                <span className="portfolio-item__tag">{p.role}</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
+        </section>
+    );
+};
 
-            <div className="portfolio-publications-block">
-                <h3 className="portfolio-publications-block__title">
-                    <BookOpen size={18} aria-hidden />
-                    Publicaciones
-                </h3>
-                <ul className="portfolio-publications-list">
-                    {publications.map((p, i) => (
-                        <li key={i} className="portfolio-publication-item">
-                            <span className="portfolio-publication-item__text">{p}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="portfolio-cta">
-                <Link to="/portfolio" className="btn btn-dark portfolio-cta__btn">
-                    Ver Portfolio Completo <ArrowRight size={18} aria-hidden />
-                </Link>
-            </div>
-        </div>
-    </section>
-);
-
-const Contact = () => (
-    <section id="contact" className="section section-cta section-contact">
-        <div className="container">
-            <div className="cta-layout cta-layout--center">
-                <div className="cta-content">
-                    <h2>¿Hablamos?</h2>
-                    <p>Estamos listos para tu próximo reto técnico.</p>
-                    <a href="mailto:info@fluit.es" className="btn btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Mail size={20} />
-                        info@fluit.es
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+const LinkedinIcon = ({ size = 20 }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+    </svg>
 );
 
 export const Home = () => {

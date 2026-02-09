@@ -227,15 +227,15 @@ export const Portfolio = () => {
             image: `${import.meta.env.BASE_URL}assets/qgisred.png`
         },
         {
-            title: 'InfoPort',
+            title: 'Fundación Valenciaport',
             tags: ['logística'],
             team: ['Elena'],
             role: 'Desarrollo de la plataforma',
             description: 'Dashboard con gráficas integrado con un sistema de predicción de contenedores para el Puerto de Valencia. Estimación de capacidad y volumen de contenedores a 1-7 días vista.',
             technologies: [
-                'React', 'Node.js', 'Docker'
+                'Angular', 'Node.js', 'Docker'
             ],
-            link: 'https://www.infoport.es/',
+            link: 'https://www.fundacion.valenciaport.com/proyecto/e2rm-empty-equipment-repository-management/',
             image: `${import.meta.env.BASE_URL}assets/valenciaport.png`
         },
         {
@@ -258,18 +258,6 @@ export const Portfolio = () => {
             ],
             link: 'https://aquatool.webs.upv.es',
             image: `${import.meta.env.BASE_URL}assets/aquatool.png`
-        },
-        {
-            title: 'Puerto de Algeciras',
-            tags: ['logística'],
-            team: ['Elena'],
-            role: 'Infraestructura y despliegue escalable',
-            description: 'Colaboración con múltiples equipos para montar la infraestructura y el despliegue escalable del software del Puerto de Algeciras.',
-            technologies: [
-                'Docker', 'Kubernetes', 'Helm', 'CI/CD'
-            ],
-            link: 'https://www.apba.es',
-            image: `${import.meta.env.BASE_URL}assets/algeciras.png`
         },
         {
             title: 'Aquarius',
@@ -297,7 +285,7 @@ export const Portfolio = () => {
             role: 'Desarrollo de software de monitorización',
             description: 'Gemelo digital de los tanques de la depuradora, donde generan biogás para ser autosostenibles. Software de monitorización y control en tiempo real.',
             technologies: [
-                'Python', 'IoT', 'React'
+                'Java', 'Scilab'
             ],
             image: `${import.meta.env.BASE_URL}assets/depuradora.jpg`
         },
