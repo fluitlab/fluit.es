@@ -3,17 +3,14 @@ import { motion as Motion } from 'framer-motion';
 import {
     ArrowRight,
     ExternalLink,
-    Code2,
-    Database,
-    MapPin,
-    Droplets,
-    GitBranch,
-    Cpu,
-    Globe2,
-    Layers,
-    Settings,
-    BarChart3
 } from 'lucide-react';
+
+const teamPhotos = {
+    Edgar: { photo: 'edgar.jpg', name: 'Edgar' },
+    Elena: { photo: 'elena.jpg', name: 'Elena' },
+    Néstor: { photo: 'nestor.png', name: 'Néstor' },
+    Vicente: { photo: 'vicente.jpg', name: 'Vicente' },
+};
 
 const PortfolioHero = () => (
     <header className="hero portfolio-hero">
@@ -25,166 +22,126 @@ const PortfolioHero = () => (
             >
                 <h1 className="portfolio-hero__title">Portfolio</h1>
                 <p className="hero-p portfolio-hero__intro">
-                    Descubre los proyectos en los que hemos trabajado y cómo hemos contribuido a la mejora de la gestión de los Recursos Hídricos a través de tecnología avanzada e innovación.
+                    Agua, software e IA aplicados a proyectos reales.
                 </p>
             </Motion.div>
         </div>
     </header>
 );
 
-const ProjectCard = ({ project, index }) => {
-    const isEven = index % 2 === 0;
-
-    return (
-        <section className={`section portfolio-project-section ${isEven ? 'portfolio-project-section--alt' : ''}`}>
-            <div className="container">
-                <div className="portfolio-grid">
-                    {/* Image Section - Centered */}
-                    {project.image && (
-                        <Motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="portfolio-project__image-centered"
-                        >
-                            <div className="portfolio-project__image-wrap">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="portfolio-project__img"
-                                />
-                            </div>
-                        </Motion.div>
-                    )}
-
-                    {/* Content Section - Automatic Flow into Columns on Desktop */}
-                    <Motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="portfolio-project__content-flow"
-                    >
-                        {/* Title Group */}
-                        <div className="portfolio-project__title-group">
-                            <h2 className="portfolio-project__title">
-                                {project.title}
-                                {project.subtitle && (
-                                    <span style={{
-                                        display: 'block',
-                                        fontSize: '1.2rem',
-                                        fontWeight: 400,
-                                        color: 'var(--text-muted)',
-                                        marginTop: '0.5rem'
-                                    }}>
-                                        {project.subtitle}
-                                    </span>
-                                )}
-                            </h2>
-
-                            {project.duration && (
-                                <div className="portfolio-project__duration">
-                                    Duración: {project.duration}
-                                </div>
-                            )}
-                        </div>
-
-                        {project.role && (
-                            <div className="portfolio-project__block">
-                                <span className="portfolio-project__role-label">Rol:</span>
-                                <p className="portfolio-project__role-text">{project.role}</p>
-                            </div>
-                        )}
-
-                        <div className="portfolio-project__block">
-                            <h3 className="portfolio-project__subtitle">Descripción</h3>
-                            {Array.isArray(project.description) ? (
-                                project.description.map((desc, i) => (
-                                    <p key={i} className="portfolio-project__text">{desc}</p>
-                                ))
-                            ) : (
-                                <p className="portfolio-project__text">{project.description}</p>
-                            )}
-                        </div>
-
-                        {project.contributions && (
-                            <div className="portfolio-project__block">
-                                <h3 className="portfolio-project__subtitle">Contribuciones Destacadas</h3>
-                                <ul className="portfolio-project__list">
-                                    {project.contributions.map((contrib, i) => (
-                                        <li key={i} className="portfolio-project__list-item">
-                                            <ArrowRight size={18} className="portfolio-project__list-icon" />
-                                            <span className="portfolio-project__list-text">{contrib}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
-
-                        {project.works && (
-                            <div className="portfolio-project__block">
-                                <h3 className="portfolio-project__subtitle">Trabajos Realizados</h3>
-                                <ul className="portfolio-project__list">
-                                    {project.works.map((work, i) => (
-                                        <li key={i} className="portfolio-project__list-item">
-                                            <ArrowRight size={18} className="portfolio-project__list-icon" />
-                                            <span className="portfolio-project__list-text">{work}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
-
-                        {project.technologies && (
-                            <div className="portfolio-project__block">
-                                <h3 className="portfolio-project__subtitle">Tecnologías Utilizadas</h3>
-                                <div className="tag-list portfolio-project__tags">
-                                    {project.technologies.map((tech, i) => (
-                                        <span key={i} className="tag portfolio-project__tag">
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {project.link && (
-                            <div className="portfolio-project__block" style={{ marginTop: '0.5rem' }}>
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-primary portfolio-project__link"
-                                >
-                                    Más información
-                                    <ExternalLink size={16} />
-                                </a>
-                            </div>
-                        )}
-                    </Motion.div>
-                </div>
+const ProjectCard = ({ project, index }) => (
+    <Motion.article
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: index * 0.05 }}
+        className="pcard"
+    >
+        {project.image && (
+            <div className="pcard__img-wrap">
+                <img src={project.image} alt={project.title} />
             </div>
-        </section>
-    );
-};
+        )}
+
+        <div className="pcard__body">
+            <div className="pcard__header">
+                <h2 className="pcard__title">{project.title}</h2>
+                {project.subtitle && (
+                    <p className="pcard__subtitle">{project.subtitle}</p>
+                )}
+            </div>
+
+            <div className="pcard__team">
+                {project.team.map((member, i) => {
+                    const info = teamPhotos[member];
+                    return (
+                        <span key={i} className="pcard__avatar" title={info.name}>
+                            <img
+                                src={`${import.meta.env.BASE_URL}assets/${info.photo}`}
+                                alt={info.name}
+                            />
+                        </span>
+                    );
+                })}
+            </div>
+
+            {project.role && (
+                <p className="pcard__role">{project.role}</p>
+            )}
+
+            <p className="pcard__desc">
+                {Array.isArray(project.description)
+                    ? project.description.join(' ')
+                    : project.description}
+            </p>
+
+            {project.contributions && (
+                <div className="pcard__section">
+                    <h3 className="pcard__section-title">Qué hicimos</h3>
+                    <ul className="pcard__list">
+                        {project.contributions.map((c, i) => (
+                            <li key={i}>
+                                <ArrowRight size={14} />
+                                <span>{c}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {project.works && (
+                <div className="pcard__section">
+                    <h3 className="pcard__section-title">Proyectos asociados</h3>
+                    <ul className="pcard__list">
+                        {project.works.map((w, i) => (
+                            <li key={i}>
+                                <ArrowRight size={14} />
+                                <span>{w}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {project.technologies && (
+                <div className="pcard__section">
+                    <h3 className="pcard__section-title">Tecnologías</h3>
+                    <div className="pcard__tags">
+                        {project.technologies.map((t, i) => (
+                            <span key={i} className="pcard__tag">{t}</span>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {project.link && (
+                <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pcard__link"
+                >
+                    Ver proyecto <ExternalLink size={14} />
+                </a>
+            )}
+        </div>
+    </Motion.article>
+);
 
 export const Portfolio = () => {
     const projects = [
         {
             title: 'Qatium',
-            duration: '6 años',
-            role: 'Investigadores, desarrolladores y un híbrido entre ingenieros de producto y programadores.',
-            description: 'Hemos contribuido al desarrollo de esta innovadora plataforma de gestión inteligente del agua, combinando modelación hidráulica, programación avanzada y diseño de soluciones personalizadas para las necesidades de los clientes.',
+            team: ['Edgar', 'Elena', 'Néstor', 'Vicente'],
+            role: 'Producto, desarrollo e investigación · 6 años',
+            description: 'Plataforma de gestión inteligente del agua. Contribuimos con modelación hidráulica, gemelos digitales, sensórica y desarrollo de plugins para clientes.',
             contributions: [
-                'Modelación hidráulica utilizando herramientas como Epanet, EpanetJS y TypeScript.',
-                'Construcción de gemelos digitales y creación de sinópticos personalizados.',
-                'Gestión de sensórica y datos de telelectura.',
-                'Desarrollo de modelos mediante inferencia, calibración y validación de datos.',
-                'Visualización de resultados e inventario de activos (assets).',
-                'Creación de conectores entre diferentes formatos y generación de modelos a partir de datos GIS.',
-                'Investigación para mejorar la toolkit de Epanet.',
-                'Implementación de sistemas de alerta temprana y desarrollo de plugins específicos según las necesidades de los clientes.'
+                'Modelación hidráulica con Epanet, EpanetJS y TypeScript',
+                'Gemelos digitales y sinópticos personalizados',
+                'Gestión de sensórica y telelectura',
+                'Calibración, inferencia y validación de modelos',
+                'Conectores GIS y generación automática de modelos',
+                'Sistemas de alerta temprana y plugins a medida'
             ],
             technologies: [
                 'Docker', 'React', 'TypeScript', 'Jest', 'Python', 'Node.js',
@@ -195,19 +152,34 @@ export const Portfolio = () => {
             image: `${import.meta.env.BASE_URL}assets/qatium.png`
         },
         {
-            title: 'Water4Cast',
-            subtitle: 'Plataforma Avanzada de Predicción y Gestión Hídrica',
-            role: 'Desarrollo completo y exhaustivo de la aplicación web, abarcando tanto el frontend como el backend, la integración de datos y la interfaz de usuario.',
-            description: [
-                'Water4cast es una plataforma digital de vanguardia diseñada para la toma de decisiones informadas en la gestión de recursos hídricos. Su principal objetivo es consolidar y visualizar una amplia gama de predicciones y modelos predictivos en un entorno único y accesible.',
-                'La plataforma integra de forma dinámica: Predicciones Meteorológicas (datos en tiempo real y a futuro sobre variables climáticas clave), Predicciones Ecohidrológicas (modelos que simulan el ciclo del agua), Predicciones Agronómicas (herramientas para optimizar el riego), Predicciones Medioambientales (evaluación del riesgo de sequía e inundaciones), y Gestión de Recursos Hídricos (módulos de apoyo para la planificación).',
-                'La arquitectura de Water4cast está diseñada para manejar grandes volúmenes de datos geoespaciales y temporales, proporcionando a los usuarios una visión predictiva y operativa esencial para la resiliencia hídrica.'
-            ],
+            title: 'Flywire',
+            team: ['Vicente'],
+            role: 'De desarrollador a Platform Engineer · 3 años',
+            description: 'Plataforma global de pagos internacionales para educación, salud y viajes. Escalado para picos de tráfico en admisiones universitarias, automatización de operaciones financieras e integración técnica de empresas adquiridas.',
             contributions: [
-                'Creación de un Visor GIS Interactivo y Avanzado: Se implementó un potente visor de Sistemas de Información Geográfica (GIS) utilizando la tecnología OpenStreetMaps como base cartográfica.',
-                'Desarrollo de un Sistema de Autenticación y Personalización de Usuario: Se diseñó e implementó un robusto sistema de login y gestión de perfiles.',
-                'Funcionalidades de consulta de datos por punto geográfico, aplicación de filtros temporales y visualización de series históricas.',
-                'Cada usuario tiene la capacidad de definir sus áreas de interés y estudio (cuencas, parcelas, puntos de control) y personalizar el panel de control.'
+                'Escalado de plataforma para picos de miles de pagos en horas',
+                'Automatización de operaciones bancarias y gestión de pagos internacionales',
+                'Integración técnica de empresas adquiridas (M&A)',
+                'Plataforma IaaS interna para mejorar la experiencia de desarrollo'
+            ],
+            technologies: [
+                'Ruby', 'Rails', 'Sinatra', 'React', 'RabbitMQ', 'Elasticsearch',
+                'AWS', 'Docker', 'Terraform', 'PostgreSQL'
+            ],
+            link: 'https://www.flywire.com',
+            image: `${import.meta.env.BASE_URL}assets/flywire.png`
+        },
+        {
+            title: 'Water4Cast',
+            team: ['Edgar', 'Néstor'],
+            subtitle: 'Predicción y gestión hídrica en tiempo real',
+            role: 'Desarrollo fullstack de la plataforma',
+            description: 'Plataforma de predicción hídrica que integra datos meteorológicos, ecohidrológicos y agronómicos. Diseñada para anticipar sequías, inundaciones y optimizar el riego.',
+            contributions: [
+                'Visor GIS interactivo sobre OpenStreetMaps',
+                'Sistema de autenticación y perfiles de usuario',
+                'Consulta de datos por punto geográfico y filtros temporales',
+                'Paneles personalizables por cuenca, parcela o punto de control'
             ],
             technologies: [
                 'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
@@ -216,13 +188,28 @@ export const Portfolio = () => {
             image: `${import.meta.env.BASE_URL}assets/water4cast.jpg`
         },
         {
-            title: 'QGISRed',
-            subtitle: 'Desarrollo de un Plugin para la Gestión Avanzada de Redes de Abastecimiento',
-            role: 'Liderazgo en el desarrollo y la implementación de un plugin especializado para la plataforma de Sistemas de Información Geográfica (SIG) QGIS.',
-            description: [
-                'El proyecto QGISRed consiste en la creación de una herramienta de software robusta y altamente funcional integrada como un plugin de QGIS. Su objetivo primordial es transformar la forma en que los profesionales del sector hídrico abordan el modelado, el análisis y la planificación de redes de abastecimiento urbano.',
-                'Este plugin está diseñado para ofrecer una interfaz intuitiva y potentes funcionalidades de geoprocesamiento que facilitan: Modelado Hidráulico Detallado (digitalización y estructuración precisa de la red), Análisis de Rendimiento y Vulnerabilidad (simulación de escenarios de demanda, cálculo de pérdidas de carga, determinación de presiones en puntos críticos).'
+            title: 'Nextail',
+            team: ['Vicente'],
+            role: 'Senior Developer · Plataforma y datos',
+            description: 'SaaS de retail analytics para optimizar stock y operaciones en moda. Arquitectura event-driven con Kafka para hacer accesibles los datos de negocio a toda la organización.',
+            contributions: [
+                'Arquitectura event-driven con Kafka y eventos de dominio',
+                'Algoritmos de optimización de stock con el equipo de data science',
+                'Pipelines de datos para analytics de negocio'
             ],
+            technologies: [
+                'Ruby', 'Java', 'Python', 'Kafka', 'Kubernetes', 'AWS',
+                'Terraform', 'React', 'PostgreSQL'
+            ],
+            link: 'https://nextail.co',
+            image: `${import.meta.env.BASE_URL}assets/nextail.png`
+        },
+        {
+            title: 'QGISRed',
+            team: ['Edgar', 'Néstor'],
+            subtitle: 'Plugin QGIS para redes de abastecimiento',
+            role: 'Desarrollo y liderazgo técnico del plugin',
+            description: 'Plugin de QGIS para modelar, analizar y planificar redes de abastecimiento urbano. Digitalización de redes, simulación de escenarios y cálculo de presiones en puntos críticos.',
             technologies: [
                 'C#', 'XAML', 'Python', 'QGIS'
             ],
@@ -230,20 +217,30 @@ export const Portfolio = () => {
             image: `${import.meta.env.BASE_URL}assets/qgisred.png`
         },
         {
-            title: 'Aquatool',
-            role: 'Desarrollo avanzado y mejora continua de módulos de cálculo hidráulico y de gestión, además de formación académica especializada a nivel internacional.',
-            description: [
-                'Nuestra participación en el proyecto Aquatool, una plataforma integral para la simulación y gestión de recursos hídricos, es fundamental. Colaboramos estrechamente con el equipo de desarrollo para la concepción, implementación y mejora continua. El objetivo es proporcionar herramientas de análisis robustas y precisas para profesionales en el sector de la ingeniería hidráulica y la planificación ambiental.'
+            title: 'InfoPort',
+            team: ['Elena'],
+            subtitle: 'Valencia InfoPort',
+            role: 'Desarrollo de plataforma',
+            description: 'Dashboard con gráficas integrado con un sistema de predicción de contenedores para el Puerto de Valencia. Estimación de capacidad y volumen de contenedores a 1-7 días vista.',
+            technologies: [
+                'React', 'Node.js', 'Docker'
             ],
+            link: 'https://www.infoport.es/',
+            image: `${import.meta.env.BASE_URL}assets/valenciaport.png`
+        },
+        {
+            title: 'Aquatool',
+            team: ['Edgar', 'Néstor'],
+            role: 'Desarrollo de módulos y formación internacional',
+            description: 'Plataforma de simulación y gestión de recursos hídricos. Colaboramos en los módulos de cálculo y en cursos especializados para ingenieros y gestores.',
             contributions: [
-                'Desarrollo Avanzado de Herramientas de Modelización: Colaboramos en el desarrollo continuo de los módulos de cálculo de Aquatool, incluyendo las principales herramientas de simulación, además de otras herramientas secundarias clave como EvalHid, Caudeco, AqtPlayer, RREA y Mashwin.',
-                'Formación y Transferencia de Conocimiento: Impartimos cursos internacionales especializados dirigidos a ingenieros, gestores y académicos, cubriendo desde el uso avanzado de los módulos SIMGES y GESCAL hasta los principios teóricos subyacentes en la modelización hidráulica y la gestión integrada de recursos hídricos (GIRH).'
+                'Desarrollo de módulos: EvalHid, Caudeco, AqtPlayer, RREA, Mashwin',
+                'Cursos internacionales sobre SIMGES, GESCAL y gestión integrada de recursos hídricos'
             ],
             works: [
-                'Junta Central (JC) de Usuarios del Alto Vinalopó: Modelación de alternativas para el suministro de caudal a los regantes de la JC, enmarcado dentro del Plan Hidrológico del Júcar.',
-                'Regantes del Alto Vinalopó: Modelo de gestión incluyendo todos los acuíferos, enmarcado dentro del Plan Hidrológico del Júcar.',
-                'Ministerio del Medio Ambiente de El Salvador: Curso online sobre el software.',
-                'TYPSA: Calibración de modelos de calidad con diferentes contaminantes.'
+                'Alto Vinalopó: modelación de alternativas de suministro (Plan Hidrológico del Júcar)',
+                'Ministerio del Medio Ambiente de El Salvador: formación online',
+                'TYPSA: calibración de modelos de calidad'
             ],
             technologies: [
                 'C#', 'VB.NET', 'Windows Forms', 'XAML', 'VBA', 'DotSpatial'
@@ -252,17 +249,26 @@ export const Portfolio = () => {
             image: `${import.meta.env.BASE_URL}assets/aquatool.png`
         },
         {
-            title: 'Aquarius',
-            role: 'Investigador, desarrollador y un híbrido entre ingeniero de producto y programador.',
-            description: [
-                'Desarrollo de una suite de herramientas orientadas a integrar, limpiar, gestionar y exportar datos para el software AQUARIUS. Las soluciones están diseñadas para automatizar flujos de trabajo de campo y de control de calidad, garantizando trazabilidad y reversibilidad en todas las operaciones.'
+            title: 'Puerto de Algeciras',
+            team: ['Elena'],
+            role: 'Infraestructura y despliegue',
+            description: 'Colaboración con múltiples equipos para montar la infraestructura y el despliegue escalable del software del Puerto de Algeciras.',
+            technologies: [
+                'Docker', 'Kubernetes', 'CI/CD'
             ],
+            link: 'https://www.apba.es',
+            image: `${import.meta.env.BASE_URL}assets/algeciras.png`
+        },
+        {
+            title: 'Aquarius',
+            team: ['Edgar', 'Néstor'],
+            role: 'Desarrollo de herramientas de integración de datos',
+            description: 'Suite de herramientas para integrar, limpiar y exportar datos en AQUARIUS. Automatización de flujos de campo y control de calidad con trazabilidad completa.',
             contributions: [
-                'Importadores y Parsers: Desarrollo de conectores para archivos Kisters (AQ_Kisters) e importación masiva de localizaciones desde CSV con validaciones geográficas y de metadatos (AQ_CreateLocations).',
-                'Gestión de Visitas: Herramientas para crear, actualizar, validar y eliminar visitas/inspecciones en lote, con soporte import/export y modo dry-run (AQ_Visits, AQ_DeleteVisits).',
-                'Series Temporales: Modificación en lote de parámetros de series temporales con preview y opciones de rollback (AQ_CreateTimeSeriesData).',
-                'Exportación y Reporting: Exportador de datos a formatos estándar (CSV/Excel) y generador automático de informes técnicos (PDF/HTML) a partir de ficheros de aforos con plantillas configurables (AQ_ExportData, AQ_Reports).',
-                'Buenas Prácticas: Validaciones automáticas, auditoría y logs, modo simulación (dry-run), capacidad de rollback y arquitectura modular para integrarse en pipelines de datos.'
+                'Importadores y parsers para archivos Kisters y CSV',
+                'Gestión de visitas e inspecciones en lote',
+                'Modificación en lote de series temporales con rollback',
+                'Exportación a CSV/Excel e informes automáticos en PDF/HTML'
             ],
             technologies: [
                 'C#', '.NET', 'CSV Parsing', 'AQUARIUS API/SDK', 'HTML/PDF Generation',
@@ -270,15 +276,41 @@ export const Portfolio = () => {
             ],
             link: 'https://aquaticinformatics.com/products/aquarius-environmental-water-data-management/',
             image: `${import.meta.env.BASE_URL}assets/aquarius.png`
+        },
+        {
+            title: 'Depuradora Quart Benàger',
+            team: ['Elena'],
+            role: 'Desarrollo de software de monitorización',
+            description: 'Sistema de monitorización y control para la depuradora de Quart Benàger.',
+            technologies: [
+                'Python', 'IoT', 'React'
+            ]
+        },
+        {
+            title: 'Internet Freedom Festival',
+            team: ['Elena', 'Vicente'],
+            role: 'Desarrollo web',
+            description: 'Evolución de la plataforma de gestión de tickets e invitaciones para el festival internacional de libertad en internet celebrado en Valencia.',
+            technologies: [
+                'React', 'Node.js'
+            ],
+            link: 'https://internetfreedomfestival.org',
+            image: `${import.meta.env.BASE_URL}assets/iff.png`
         }
     ];
 
     return (
         <>
             <PortfolioHero />
-            {projects.map((project, index) => (
-                <ProjectCard key={project.title} project={project} index={index} />
-            ))}
+            <section className="section portfolio-grid-section">
+                <div className="container">
+                    <div className="pcard-grid">
+                        {projects.map((project, index) => (
+                            <ProjectCard key={project.title} project={project} index={index} />
+                        ))}
+                    </div>
+                </div>
+            </section>
         </>
     );
 };
