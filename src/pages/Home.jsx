@@ -145,7 +145,7 @@ const TeamSection = () => (
             <div className="founders-grid">
                 <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/edgar.jpg`} alt="Edgar Belda" />
+                        <img src={`/assets/edgar.jpg`} alt="Edgar Belda" />
                     </div>
                     <div className="founder-header">
                         <h3>Edgar Belda</h3>
@@ -155,7 +155,7 @@ const TeamSection = () => (
                 </a>
                 <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/elena.jpg`} alt="Elena Melchor" />
+                        <img src={`/assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
                     <div className="founder-header">
                         <h3>Elena Melchor</h3>
@@ -165,7 +165,7 @@ const TeamSection = () => (
                 </a>
                 <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/nestor.png`} alt="Néstor Lerma" />
+                        <img src={`/assets/nestor.png`} alt="Néstor Lerma" />
                     </div>
                     <div className="founder-header">
                         <h3>Néstor Lerma</h3>
@@ -175,7 +175,7 @@ const TeamSection = () => (
                 </a>
                 <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`${import.meta.env.BASE_URL}assets/vicente.jpg`} alt="Vicente Baixauli" />
+                        <img src={`/assets/vicente.jpg`} alt="Vicente Baixauli" />
                     </div>
                     <div className="founder-header">
                         <h3>Vicente Baixauli</h3>
@@ -241,7 +241,7 @@ const ServicesGrid = () => (
                 <div className="client-logos__row">
                     {clientLogos.map((client, i) => (
                         <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
-                            <img src={`${import.meta.env.BASE_URL}assets/${client.src}`} alt={client.alt} className="client-logos__img" />
+                            <img src={`/assets/${client.src}`} alt={client.alt} className="client-logos__img" />
                         </a>
                     ))}
                 </div>

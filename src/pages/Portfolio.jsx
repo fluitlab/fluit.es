@@ -53,7 +53,7 @@ const ProjectCard = ({ project, index }) => (
                         return (
                             <span key={i} className="pcard__avatar" title={info.name}>
                                 <img
-                                    src={`${import.meta.env.BASE_URL}assets/${info.photo}`}
+                                    src={`/assets/${info.photo}`}
                                     alt={info.name}
                                 />
                             </span>
@@ -157,7 +157,7 @@ export const Portfolio = () => {
                 'Miro', 'Tinybird'
             ],
             link: 'https://qatium.com',
-            image: `${import.meta.env.BASE_URL}assets/qatium.png`
+            image: `/assets/qatium.png`
         },
         {
             title: 'Flywire',
@@ -176,7 +176,7 @@ export const Portfolio = () => {
                 'AWS', 'Docker', 'Terraform', 'PostgreSQL'
             ],
             link: 'https://www.flywire.com',
-            image: `${import.meta.env.BASE_URL}assets/flywire.png`
+            image: `/assets/flywire.png`
         },
         {
             title: 'Water4Cast',
@@ -194,7 +194,7 @@ export const Portfolio = () => {
                 'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
             ],
             link: 'https://water4cast.webs.upv.es',
-            image: `${import.meta.env.BASE_URL}assets/water4cast.jpg`
+            image: `/assets/water4cast.jpg`
         },
         {
             title: 'Nextail',
@@ -212,7 +212,7 @@ export const Portfolio = () => {
                 'Terraform', 'React', 'PostgreSQL'
             ],
             link: 'https://nextail.co',
-            image: `${import.meta.env.BASE_URL}assets/nextail.png`
+            image: `/assets/nextail.png`
         },
         {
             title: 'QGISRed',
@@ -224,7 +224,7 @@ export const Portfolio = () => {
                 'C#', 'XAML', 'Python', 'QGIS'
             ],
             link: 'https://qgisred.upv.es',
-            image: `${import.meta.env.BASE_URL}assets/qgisred.png`
+            image: `/assets/qgisred.png`
         },
         {
             title: 'Fundación Valenciaport',
@@ -236,7 +236,7 @@ export const Portfolio = () => {
                 'Angular', 'Node.js', 'Docker'
             ],
             link: 'https://www.fundacion.valenciaport.com/proyecto/e2rm-empty-equipment-repository-management/',
-            image: `${import.meta.env.BASE_URL}assets/valenciaport.png`
+            image: `/assets/valenciaport.png`
         },
         {
             title: 'Aquatool',
@@ -257,7 +257,7 @@ export const Portfolio = () => {
                 'C#', 'VB.NET', 'Windows Forms', 'XAML', 'VBA', 'DotSpatial'
             ],
             link: 'https://aquatool.webs.upv.es',
-            image: `${import.meta.env.BASE_URL}assets/aquatool.png`
+            image: `/assets/aquatool.png`
         },
         {
             title: 'Aquarius',
@@ -276,7 +276,7 @@ export const Portfolio = () => {
                 'Excel Export', 'CLI Tools', 'Logging & Auditing'
             ],
             link: 'https://aquaticinformatics.com/products/aquarius-environmental-water-data-management/',
-            image: `${import.meta.env.BASE_URL}assets/aquarius.png`
+            image: `/assets/aquarius.png`
         },
         {
             title: 'Depuradora Quart Benàger',
@@ -287,7 +287,7 @@ export const Portfolio = () => {
             technologies: [
                 'Java', 'Scilab'
             ],
-            image: `${import.meta.env.BASE_URL}assets/depuradora.jpg`
+            image: `/assets/depuradora.jpg`
         },
         {
             title: 'Internet Freedom Festival',
@@ -299,7 +299,7 @@ export const Portfolio = () => {
                 'Ruby', 'Rails', 'Bootstrap'
             ],
             link: 'https://internetfreedomfestival.org',
-            image: `${import.meta.env.BASE_URL}assets/iff.png`
+            image: `/assets/iff.png`
         }
     ];
 
