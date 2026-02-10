@@ -12,7 +12,7 @@ export const Footer = () => (
             <div className="footer-col">
                 <p className="footer-col__heading">Contacto</p>
                 <a href="mailto:info@fluit.es">info@fluit.es</a>
-                <a href="https://www.linkedin.com/company/fluit-coop/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/fluitcoop/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
             <div className="footer-col">
                 <p className="footer-col__heading">Legal</p>

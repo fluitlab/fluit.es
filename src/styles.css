@@ -534,6 +534,7 @@ a {
 
 .client-logos__img {
   height: 52px;
+  max-width: 130px;
   width: auto;
   object-fit: contain;
 }
