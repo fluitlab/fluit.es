@@ -8,8 +8,8 @@ import {
 
 const teamPhotos = {
     Edgar: { photo: 'edgar.jpg', name: 'Edgar' },
-    Elena: { photo: 'elena.png', name: 'Elena' },
-    Néstor: { photo: 'nestor.png', name: 'Néstor' },
+    Elena: { photo: 'elena.jpg', name: 'Elena' },
+    Néstor: { photo: 'nestor.jpg', name: 'Néstor' },
     Vicente: { photo: 'vicente.jpg', name: 'Vicente' },
 };
 

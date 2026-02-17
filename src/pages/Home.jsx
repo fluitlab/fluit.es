@@ -155,7 +155,7 @@ const TeamSection = () => (
                 </a>
                 <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`/assets/elena.png`} alt="Elena Melchor" />
+                        <img src={`/assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
                     <div className="founder-header">
                         <h3>Elena Melchor</h3>
@@ -165,7 +165,7 @@ const TeamSection = () => (
                 </a>
                 <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
-                        <img src={`/assets/nestor.png`} alt="Néstor Lerma" />
+                        <img src={`/assets/nestor.jpg`} alt="Néstor Lerma" />
                     </div>
                     <div className="founder-header">
                         <h3>Néstor Lerma</h3>
