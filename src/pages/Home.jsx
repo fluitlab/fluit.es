@@ -284,7 +284,7 @@ const Contact = () => {
             if (!res.ok) throw new Error('Formspree error');
             formRef.current?.reset();
             setStatus({ state: 'success', message: '¡Gracias! Te escribimos en breve.' });
-        } catch (err) {
+        } catch  {
             setStatus({
                 state: 'error',
                 message: 'No se pudo enviar. Prueba de nuevo o escríbenos a info@fluit.es.'
