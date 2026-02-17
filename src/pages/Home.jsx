@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion';
-import pecesVideo from '../assets/peces.mp4';
+import pecesVideo from '../assets/background.mp4';
 import {
     Droplets,
     Code2,
