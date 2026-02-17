@@ -166,7 +166,7 @@ export const Portfolio = () => {
                 'Miro', 'Tinybird'
             ],
             link: 'https://qatium.com',
-            image: `/assets/qatium.png`
+            image: `/assets/qatium.jpg`
         },
         {
             title: 'Depuradora Quart Benàger',
@@ -222,7 +222,7 @@ export const Portfolio = () => {
                 'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
             ],
             link: 'https://water4cast.webs.upv.es',
-            image: `/assets/water4cast.jpg`
+            image: `/assets/water4cast.png`
         },
         {
             title: 'Flywire',
@@ -242,7 +242,7 @@ export const Portfolio = () => {
                 'AWS', 'Docker', 'Terraform', 'PostgreSQL'
             ],
             link: 'https://www.flywire.com',
-            image: `/assets/flywire.png`
+            image: `/assets/flywire.jpg`
         },
         {
             title: 'Nextail',
@@ -261,7 +261,7 @@ export const Portfolio = () => {
                 'Terraform', 'React', 'PostgreSQL'
             ],
             link: 'https://nextail.co',
-            image: `/assets/nextail.png`
+            image: `/assets/nextail.jpg`
         },
         {
             title: 'Fundación Valenciaport',
@@ -302,7 +302,7 @@ export const Portfolio = () => {
                 'C#', 'VB.NET', 'Windows Forms', 'XAML', 'VBA', 'DotSpatial'
             ],
             link: 'https://aquatool.webs.upv.es',
-            image: `/assets/aquatool.png`
+            image: `/assets/aquatool.jpg`
         },
         {
             title: 'Aquarius',
