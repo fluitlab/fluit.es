@@ -261,7 +261,7 @@ export const Portfolio = () => {
                 'Terraform', 'React', 'PostgreSQL'
             ],
             link: 'https://nextail.co',
-            image: `/assets/nextail.jpg`
+            image: `/assets/nextail.png`
         },
         {
             title: 'Fundación Valenciaport',
