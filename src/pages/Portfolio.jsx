@@ -240,7 +240,7 @@ export const Portfolio = () => {
         },
         {
             title: 'Aquatool',
-            tags: ['agua', 'open source'],
+            tags: ['agua'],
             team: ['Edgar', 'Néstor'],
             role: 'Desarrollo de módulos y formación internacional',
             description: 'Plataforma de simulación y gestión de recursos hídricos. Colaboramos en los módulos de cálculo y en cursos especializados para ingenieros y gestores.',
