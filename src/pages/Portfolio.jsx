@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
+    Briefcase,
     ExternalLink,
+    Rocket,
     X,
 } from 'lucide-react';
 
@@ -23,7 +25,7 @@ const PortfolioHero = () => (
             >
                 <h1 className="portfolio-hero__title">Portfolio</h1>
                 <p className="hero-p portfolio-hero__intro">
-                    Agua, software e IA aplicados a proyectos reales.
+                    Proyectos que hemos desarrollado y empresas donde hemos crecido.
                 </p>
             </Motion.div>
         </div>
@@ -41,6 +43,11 @@ const ProjectCard = ({ project, index }) => (
         {project.image && (
             <div className="pcard__img-wrap">
                 <img src={project.image} alt={project.title} />
+                <span className={`pcard__badge pcard__badge--${project.category}`}>
+                    {project.category === 'portfolio'
+                        ? <><Rocket size={12} /> Cliente</>
+                        : <><Briefcase size={12} /> Experiencia laboral</>}
+                </span>
             </div>
         )}
 
@@ -135,10 +142,12 @@ const filters = [
 
 export const Portfolio = () => {
     const [activeFilter, setActiveFilter] = useState(null);
+    const [activeCategory, setActiveCategory] = useState(null);
 
     const projects = [
         {
             title: 'Qatium',
+            category: 'experience',
             tags: ['agua'],
             team: ['Edgar', 'Elena', 'Néstor', 'Vicente'],
             role: 'Producto, desarrollo e investigación',
@@ -160,7 +169,64 @@ export const Portfolio = () => {
             image: `/assets/qatium.png`
         },
         {
+            title: 'Depuradora Quart Benàger',
+            category: 'experience',
+            tags: ['agua'],
+            team: ['Elena'],
+            role: 'Desarrollo de software de monitorización',
+            description: 'Gemelo digital de los tanques de la depuradora para optimizar el consumo de biogás autoproducido en sus propios procesos. Desarrollamos el frontend y el backend completo, incluyendo el ajuste del modelo de ecuaciones en Scilab y la integración con sensores de la planta a través de Nexus para monitorización y control en tiempo real.',
+            contributions: [
+                'Desarrollo del frontend de monitorización en Angular',
+                'API REST en Node.js para la gestión de datos de sensores',
+                'Ajuste y calibración del modelo de ecuaciones en Scilab',
+                'Integración con sensores de la planta vía Nexus'
+            ],
+            technologies: [
+                'Angular', 'Node.js', 'Nexus', 'Scilab', 'MongoDB'
+            ],
+            image: `/assets/depuradora.jpg`
+        },
+        {
+            title: 'QGISRed',
+            category: 'portfolio',
+            tags: ['agua', 'open source'],
+            team: ['Edgar', 'Néstor'],
+            role: 'Desarrollo y liderazgo técnico del plugin',
+            description: 'Plugin de QGIS para modelar, analizar y planificar redes de abastecimiento urbano. Digitalización de redes, simulación de escenarios y cálculo de presiones en puntos críticos.',
+            contributions: [
+                'Digitalización y edición gráfica de redes de abastecimiento',
+                'Simulación hidráulica con motor Epanet integrado',
+                'Herramientas de verificación y corrección topológica de redes',
+                'Generación de informes y exportación de resultados'
+            ],
+            technologies: [
+                'C#', 'XAML', 'Python', 'QGIS'
+            ],
+            link: 'https://qgisred.upv.es',
+            image: `/assets/qgisred.png`
+        },
+        {
+            title: 'Water4Cast',
+            category: 'portfolio',
+            tags: ['agua', 'open source'],
+            team: ['Edgar', 'Néstor'],
+            role: 'Desarrollo fullstack',
+            description: 'Plataforma de predicción hídrica que integra datos meteorológicos, ecohidrológicos y agronómicos. Diseñada para anticipar sequías, inundaciones y optimizar el riego.',
+            contributions: [
+                'Visor GIS interactivo sobre OpenStreetMaps',
+                'Sistema de autenticación y perfiles de usuario',
+                'Consulta de datos por punto geográfico y filtros temporales',
+                'Paneles personalizables por cuenca, parcela o punto de control'
+            ],
+            technologies: [
+                'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
+            ],
+            link: 'https://water4cast.webs.upv.es',
+            image: `/assets/water4cast.jpg`
+        },
+        {
             title: 'Flywire',
+            category: 'experience',
             tags: ['fintech'],
             team: ['Vicente'],
             role: 'Desarrollo de producto de la plataforma de pagos',
@@ -179,25 +245,8 @@ export const Portfolio = () => {
             image: `/assets/flywire.png`
         },
         {
-            title: 'Water4Cast',
-            tags: ['agua', 'open source'],
-            team: ['Edgar', 'Néstor'],
-            role: 'Desarrollo fullstack',
-            description: 'Plataforma de predicción hídrica que integra datos meteorológicos, ecohidrológicos y agronómicos. Diseñada para anticipar sequías, inundaciones y optimizar el riego.',
-            contributions: [
-                'Visor GIS interactivo sobre OpenStreetMaps',
-                'Sistema de autenticación y perfiles de usuario',
-                'Consulta de datos por punto geográfico y filtros temporales',
-                'Paneles personalizables por cuenca, parcela o punto de control'
-            ],
-            technologies: [
-                'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
-            ],
-            link: 'https://water4cast.webs.upv.es',
-            image: `/assets/water4cast.jpg`
-        },
-        {
             title: 'Nextail',
+            category: 'experience',
             tags: ['retail'],
             team: ['Vicente'],
             role: 'Desarrollo de plataforma y datos',
@@ -215,31 +264,27 @@ export const Portfolio = () => {
             image: `/assets/nextail.png`
         },
         {
-            title: 'QGISRed',
-            tags: ['agua', 'open source'],
-            team: ['Edgar', 'Néstor'],
-            role: 'Desarrollo y liderazgo técnico del plugin',
-            description: 'Plugin de QGIS para modelar, analizar y planificar redes de abastecimiento urbano. Digitalización de redes, simulación de escenarios y cálculo de presiones en puntos críticos.',
-            technologies: [
-                'C#', 'XAML', 'Python', 'QGIS'
-            ],
-            link: 'https://qgisred.upv.es',
-            image: `/assets/qgisred.png`
-        },
-        {
             title: 'Fundación Valenciaport',
+            category: 'experience',
             tags: ['logística'],
             team: ['Elena'],
             role: 'Desarrollo de la plataforma',
-            description: 'Dashboard con gráficas integrado con un sistema de predicción de contenedores para el Puerto de Valencia. Estimación de capacidad y volumen de contenedores a 1-7 días vista.',
+            description: 'Middleware en Node para alimentar una base de datos a partir de CSVs de stock de contenedores que llegaban por mar y tierra al Puerto de Valencia. Los datos alimentaban un motor de predicción en Python que generaba estimaciones de disponibilidad de contenedores a 1-7 días vista, visualizadas en un dashboard con gráficas.',
+            contributions: [
+                'Middleware en Node.js para ingesta de datos CSV de contenedores',
+                'Integración con motor de predicción en Python',
+                'Dashboard de visualización de predicciones a 1-7 días',
+                'Modelado de base de datos SQL para stock portuario'
+            ],
             technologies: [
-                'Angular', 'Node.js', 'Docker'
+                'Node.js', 'SQL', 'Python', 'Angular', 'Docker'
             ],
             link: 'https://www.fundacion.valenciaport.com/proyecto/e2rm-empty-equipment-repository-management/',
             image: `/assets/valenciaport.png`
         },
         {
             title: 'Aquatool',
+            category: 'portfolio',
             tags: ['agua'],
             team: ['Edgar', 'Néstor'],
             role: 'Desarrollo de módulos y formación internacional',
@@ -261,6 +306,7 @@ export const Portfolio = () => {
         },
         {
             title: 'Aquarius',
+            category: 'portfolio',
             tags: ['agua'],
             team: ['Edgar', 'Néstor'],
             role: 'Desarrollo de herramientas de integración de datos',
@@ -279,22 +325,17 @@ export const Portfolio = () => {
             image: `/assets/aquarius.png`
         },
         {
-            title: 'Depuradora Quart Benàger',
-            tags: ['agua'],
-            team: ['Elena'],
-            role: 'Desarrollo de software de monitorización',
-            description: 'Gemelo digital de los tanques de la depuradora, donde generan biogás para ser autosostenibles. Software de monitorización y control en tiempo real.',
-            technologies: [
-                'Java', 'Scilab'
-            ],
-            image: `/assets/depuradora.jpg`
-        },
-        {
             title: 'Internet Freedom Festival',
+            category: 'portfolio',
             tags: ['open source'],
             team: ['Elena', 'Vicente'],
             role: 'Desarrollo web',
             description: 'Evolución de la plataforma de gestión de tickets e invitaciones para el festival internacional de libertad en internet celebrado en Valencia.',
+            contributions: [
+                'Plataforma de gestión de propuestas y sesiones del festival',
+                'Sistema de tickets e invitaciones con roles de usuario',
+                'Migración y evolución de la aplicación Rails existente'
+            ],
             technologies: [
                 'Ruby', 'Rails', 'Bootstrap'
             ],
@@ -303,9 +344,15 @@ export const Portfolio = () => {
         }
     ];
 
-    const filtered = activeFilter
-        ? projects.filter(p => p.tags.includes(activeFilter))
-        : projects;
+    const filtered = projects
+        .filter(p => !activeFilter || p.tags.includes(activeFilter))
+        .filter(p => !activeCategory || p.category === activeCategory);
+
+    const hasResultsForTag = (tag) =>
+        projects.some(p => p.tags.includes(tag) && (!activeCategory || p.category === activeCategory));
+
+    const hasResultsForCategory = (category) =>
+        projects.some(p => p.category === category && (!activeFilter || p.tags.includes(activeFilter)));
 
     return (
         <>
@@ -313,16 +360,37 @@ export const Portfolio = () => {
             <section className="section portfolio-grid-section">
                 <div className="container">
                     <div className="pfilter-bar">
-                        {filters.map(f => (
-                            <button
-                                key={f.key}
-                                className={`pfilter-chip${activeFilter === f.key ? ' pfilter-chip--active' : ''}`}
-                                onClick={() => setActiveFilter(activeFilter === f.key ? null : f.key)}
-                            >
-                                {f.label}
-                                {activeFilter === f.key && <X size={14} />}
-                            </button>
-                        ))}
+                        {filters.map(f => {
+                            const disabled = !hasResultsForTag(f.key) && activeFilter !== f.key;
+                            return (
+                                <button
+                                    key={f.key}
+                                    className={`pfilter-chip${activeFilter === f.key ? ' pfilter-chip--active' : ''}${disabled ? ' pfilter-chip--disabled' : ''}`}
+                                    onClick={() => !disabled && setActiveFilter(activeFilter === f.key ? null : f.key)}
+                                    disabled={disabled}
+                                >
+                                    {f.label}
+                                    {activeFilter === f.key && <X size={14} />}
+                                </button>
+                            );
+                        })}
+                        <span className="pfilter-separator" />
+                        <button
+                            className={`pfilter-chip${activeCategory === 'portfolio' ? ' pfilter-chip--active' : ''}${!hasResultsForCategory('portfolio') && activeCategory !== 'portfolio' ? ' pfilter-chip--disabled' : ''}`}
+                            onClick={() => hasResultsForCategory('portfolio') && setActiveCategory(activeCategory === 'portfolio' ? null : 'portfolio')}
+                            disabled={!hasResultsForCategory('portfolio') && activeCategory !== 'portfolio'}
+                        >
+                            <Rocket size={14} /> Cliente
+                            {activeCategory === 'portfolio' && <X size={14} />}
+                        </button>
+                        <button
+                            className={`pfilter-chip${activeCategory === 'experience' ? ' pfilter-chip--active' : ''}${!hasResultsForCategory('experience') && activeCategory !== 'experience' ? ' pfilter-chip--disabled' : ''}`}
+                            onClick={() => hasResultsForCategory('experience') && setActiveCategory(activeCategory === 'experience' ? null : 'experience')}
+                            disabled={!hasResultsForCategory('experience') && activeCategory !== 'experience'}
+                        >
+                            <Briefcase size={14} /> Experiencia laboral
+                            {activeCategory === 'experience' && <X size={14} />}
+                        </button>
                     </div>
                     <div className="pcard-grid">
                         <AnimatePresence mode="popLayout">

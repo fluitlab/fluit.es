@@ -1348,8 +1348,16 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  align-items: center;
   justify-content: center;
   padding: 1.5rem 0 2rem;
+}
+
+.pfilter-separator {
+  width: 1px;
+  height: 1.5rem;
+  background: rgba(11, 28, 36, 0.15);
+  margin: 0 0.25rem;
 }
 
 .pfilter-chip {
@@ -1383,6 +1391,38 @@ a {
   color: #ffffff;
 }
 
+.pfilter-chip--disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pcard__badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.pcard__badge--portfolio {
+  background: rgba(21, 139, 134, 0.85);
+  color: #ffffff;
+}
+
+.pcard__badge--experience {
+  background: rgba(11, 28, 36, 0.7);
+  color: #ffffff;
+}
+
 .pcard-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1406,6 +1446,7 @@ a {
 }
 
 .pcard__img-wrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
