@@ -8,7 +8,7 @@ import {
 
 const teamPhotos = {
     Edgar: { photo: 'edgar.jpg', name: 'Edgar' },
-    Elena: { photo: 'elena.jpg', name: 'Elena' },
+    Elena: { photo: 'elena.png', name: 'Elena' },
     Néstor: { photo: 'nestor.png', name: 'Néstor' },
     Vicente: { photo: 'vicente.jpg', name: 'Vicente' },
 };
