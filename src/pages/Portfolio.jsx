@@ -203,7 +203,7 @@ export const Portfolio = () => {
                 'C#', 'XAML', 'Python', 'QGIS'
             ],
             link: 'https://qgisred.upv.es',
-            image: `/assets/qgisred.png`
+            image: `/assets/qgisred.jpg`
         },
         {
             title: 'Water4Cast',
@@ -280,7 +280,7 @@ export const Portfolio = () => {
                 'Node.js', 'SQL', 'Python', 'Angular', 'Docker'
             ],
             link: 'https://www.fundacion.valenciaport.com/proyecto/e2rm-empty-equipment-repository-management/',
-            image: `/assets/valenciaport.png`
+            image: `/assets/valenciaport.jpg`
         },
         {
             title: 'Aquatool',
@@ -340,7 +340,7 @@ export const Portfolio = () => {
                 'Ruby', 'Rails', 'Bootstrap'
             ],
             link: 'https://internetfreedomfestival.org',
-            image: `/assets/iff.png`
+            image: `/assets/iff.jpg`
         }
     ];
 
