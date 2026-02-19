@@ -147,41 +147,33 @@ const TeamSection = () => (
                     <div className="founder-photo">
                         <img src={`/assets/edgar.jpg`} alt="Edgar Belda" />
                     </div>
-                    <div className="founder-header">
-                        <h3>Edgar Belda</h3>
-                        <LinkedinIcon size={18} />
-                    </div>
+                    <h3>Edgar Belda</h3>
                     <p className="founder-role">Full-stack · Hidráulica</p>
+                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
                 </a>
                 <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`/assets/elena.jpg`} alt="Elena Melchor" />
                     </div>
-                    <div className="founder-header">
-                        <h3>Elena Melchor</h3>
-                        <LinkedinIcon size={18} />
-                    </div>
+                    <h3>Elena Melchor</h3>
                     <p className="founder-role">Full-stack · Backend · GIS</p>
+                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
                 </a>
                 <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`/assets/nestor.jpg`} alt="Néstor Lerma" />
                     </div>
-                    <div className="founder-header">
-                        <h3>Néstor Lerma</h3>
-                        <LinkedinIcon size={18} />
-                    </div>
+                    <h3>Néstor Lerma</h3>
                     <p className="founder-role">Full-stack · Hidráulica</p>
+                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
                 </a>
                 <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder">
                     <div className="founder-photo">
                         <img src={`/assets/vicente.jpg`} alt="Vicente Baixauli" />
                     </div>
-                    <div className="founder-header">
-                        <h3>Vicente Baixauli</h3>
-                        <LinkedinIcon size={18} />
-                    </div>
+                    <h3>Vicente Baixauli</h3>
                     <p className="founder-role">Full-stack · Plataforma · IA</p>
+                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
                 </a>
             </div>
         </div>
