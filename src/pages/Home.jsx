@@ -15,6 +15,24 @@ import {
     MessagesSquare
 } from 'lucide-react';
 
+const LinkedinIcon = ({ size = 20 }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+    </svg>
+);
+
 const waterServices = [
     {
         icon: <Droplets />,
@@ -106,36 +124,37 @@ const Hero = () => (
     </header>
 );
 
+const identityCards = [
+    { icon: <Droplets size={28} />, title: 'Ingeniería Hidráulica',  desc: 'Tu consultora de recursos hídricos. Modelación, planificación y conexión directa con centros de investigación de referencia.' },
+    { icon: <Code2 size={28} />,    title: 'Desarrollo de Software', desc: 'Tu equipo de desarrollo externo. Creamos herramientas a medida que resuelven problemas reales.' },
+    { icon: <BrainCircuit size={28} />, title: 'IA & Datos',         desc: 'Especialistas en integrar inteligencia artificial y análisis de datos en tus procesos y productos.' },
+    { icon: <Users size={28} />,    title: 'Cooperativa Social',     desc: 'Personas antes que beneficios. Priorizamos la calidad, el compromiso y las relaciones a largo plazo.' },
+];
+
 const Identity = () => (
     <section id="identity" className="section section--dark section-identity">
         <div className="container benefits-layout">
             <h2 className="section-title section-title--light">Qué nos hace diferentes</h2>
             <p className="section-intro section-intro--light">Combinamos disciplinas que rara vez van juntas. Esto nos permite abordar problemas desde ángulos que otros no pueden.</p>
             <div className="identity-cards">
-                <div className="identity-card">
-                    <div className="identity-card__icon"><Droplets size={28} /></div>
-                    <h3>Ingeniería Hidráulica</h3>
-                    <p>Tu consultora de recursos hídricos. Modelación, planificación y conexión directa con centros de investigación de referencia.</p>
-                </div>
-                <div className="identity-card">
-                    <div className="identity-card__icon"><Code2 size={28} /></div>
-                    <h3>Desarrollo de Software</h3>
-                    <p>Tu equipo de desarrollo externo. Creamos herramientas a medida que resuelven problemas reales.</p>
-                </div>
-                <div className="identity-card">
-                    <div className="identity-card__icon"><BrainCircuit size={28} /></div>
-                    <h3>IA & Datos</h3>
-                    <p>Especialistas en integrar inteligencia artificial y análisis de datos en tus procesos y productos.</p>
-                </div>
-                <div className="identity-card">
-                    <div className="identity-card__icon"><Users size={28} /></div>
-                    <h3>Cooperativa Social</h3>
-                    <p>Personas antes que beneficios. Priorizamos la calidad, el compromiso y las relaciones a largo plazo.</p>
-                </div>
+                {identityCards.map(({ icon, title, desc }) => (
+                    <div key={title} className="identity-card">
+                        <div className="identity-card__icon">{icon}</div>
+                        <h3>{title}</h3>
+                        <p>{desc}</p>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
 );
+
+const founders = [
+    { name: 'Edgar Belda',      photo: 'edgar.jpg',   role: 'Full-stack · Hidráulica',      linkedin: 'edgarbelda' },
+    { name: 'Elena Melchor',    photo: 'elena.jpg',   role: 'Full-stack · Backend · GIS',   linkedin: 'emelgil' },
+    { name: 'Néstor Lerma',     photo: 'nestor.jpg',  role: 'Full-stack · Hidráulica',      linkedin: 'neslerel' },
+    { name: 'Vicente Baixauli', photo: 'vicente.jpg', role: 'Full-stack · Plataforma · IA', linkedin: 'vibaiher' },
+];
 
 const TeamSection = () => (
     <section id="team" className="section section-founders">
@@ -143,38 +162,16 @@ const TeamSection = () => (
             <h2 className="section-title section-title--light">Quiénes somos</h2>
             <p className="section-intro section-intro--light">Cuatro perfiles híbridos. Dos vienen del agua, dos del software. En Qatium nos encontramos.</p>
             <div className="founders-grid">
-                <a href="https://www.linkedin.com/in/edgarbelda/" target="_blank" rel="noopener noreferrer" className="founder">
-                    <div className="founder-photo">
-                        <img src={`/assets/edgar.jpg`} alt="Edgar Belda" />
-                    </div>
-                    <h3>Edgar Belda</h3>
-                    <p className="founder-role">Full-stack · Hidráulica</p>
-                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/emelgil/" target="_blank" rel="noopener noreferrer" className="founder">
-                    <div className="founder-photo">
-                        <img src={`/assets/elena.jpg`} alt="Elena Melchor" />
-                    </div>
-                    <h3>Elena Melchor</h3>
-                    <p className="founder-role">Full-stack · Backend · GIS</p>
-                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/neslerel/" target="_blank" rel="noopener noreferrer" className="founder">
-                    <div className="founder-photo">
-                        <img src={`/assets/nestor.jpg`} alt="Néstor Lerma" />
-                    </div>
-                    <h3>Néstor Lerma</h3>
-                    <p className="founder-role">Full-stack · Hidráulica</p>
-                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vibaiher/" target="_blank" rel="noopener noreferrer" className="founder">
-                    <div className="founder-photo">
-                        <img src={`/assets/vicente.jpg`} alt="Vicente Baixauli" />
-                    </div>
-                    <h3>Vicente Baixauli</h3>
-                    <p className="founder-role">Full-stack · Plataforma · IA</p>
-                    <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
-                </a>
+                {founders.map(({ name, photo, role, linkedin }) => (
+                    <a key={linkedin} href={`https://www.linkedin.com/in/${linkedin}/`} target="_blank" rel="noopener noreferrer" className="founder">
+                        <div className="founder-photo">
+                            <img src={`/assets/${photo}`} alt={name} />
+                        </div>
+                        <h3>{name}</h3>
+                        <p className="founder-role">{role}</p>
+                        <span className="founder-linkedin-badge"><LinkedinIcon size={13} /> LinkedIn</span>
+                    </a>
+                ))}
             </div>
         </div>
     </section>
@@ -360,24 +357,6 @@ const Contact = () => {
         </section>
     );
 };
-
-const LinkedinIcon = ({ size = 20 }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect width="4" height="12" x="2" y="9" />
-        <circle cx="4" cy="4" r="2" />
-    </svg>
-);
 
 export const Home = () => {
     return (
