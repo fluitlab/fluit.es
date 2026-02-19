@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMeta } from '../hooks/useMeta';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
@@ -141,6 +142,14 @@ const filters = [
 ];
 
 export const Portfolio = () => {
+    useMeta({
+        title: 'Portfolio — Fluit',
+        description: 'Proyectos de ingeniería hidráulica, desarrollo de software e IA realizados por el equipo de Fluit.',
+        canonical: 'https://fluit.es/portfolio',
+        ogTitle: 'Portfolio — Fluit',
+        ogUrl: 'https://fluit.es/portfolio',
+    });
+
     const [activeFilter, setActiveFilter] = useState(null);
     const [activeCategory, setActiveCategory] = useState(null);
 

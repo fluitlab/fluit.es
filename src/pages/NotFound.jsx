@@ -1,9 +1,12 @@
 import React from 'react';
+import { useMeta } from '../hooks/useMeta';
 import { motion as Motion } from 'framer-motion';
 import { Home as HomeIcon, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
+    useMeta({ title: '404 — Fluit', robots: 'noindex' });
+
     return (
         <div style={{
             minHeight: '80vh',

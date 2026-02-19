@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useMeta } from '../hooks/useMeta';
 import { Link } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion';
 import pecesVideo from '../assets/background.mp4';
@@ -358,9 +359,29 @@ const Contact = () => {
     );
 };
 
+const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Fluit',
+    url: 'https://fluit.es',
+    logo: 'https://fluit.es/assets/favicon.svg',
+    description: 'Consultoría de ingeniería hidráulica, desarrollo de software e IA.',
+    email: 'info@fluit.es',
+    address: { '@type': 'PostalAddress', addressLocality: 'Valencia', addressCountry: 'ES' },
+};
+
 export const Home = () => {
+    useMeta({
+        title: 'Fluit — Ingeniería hidráulica, software e IA',
+        description: 'Consultoría de Recursos Hídricos y Desarrollo de Software Especializado. Ingeniería del Agua Potenciada por Datos.',
+        canonical: 'https://fluit.es/',
+        ogTitle: 'Fluit — Ingeniería hidráulica, software e IA',
+        ogUrl: 'https://fluit.es/',
+    });
+
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
             <Hero />
             <Identity />
             <ServicesGrid />
