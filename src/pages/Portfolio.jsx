@@ -3,6 +3,7 @@ import { useMeta } from '../hooks/useMeta';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
+    Box,
     Briefcase,
     ExternalLink,
     Rocket,
@@ -47,7 +48,9 @@ const ProjectCard = ({ project, index }) => (
                 <span className={`pcard__badge pcard__badge--${project.category}`}>
                     {project.category === 'portfolio'
                         ? <><Rocket size={12} /> Cliente</>
-                        : <><Briefcase size={12} /> Experiencia laboral</>}
+                        : project.category === 'product'
+                            ? <><Box size={12} /> Producto propio</>
+                            : <><Briefcase size={12} /> Experiencia laboral</>}
                 </span>
             </div>
         )}
@@ -334,6 +337,24 @@ export const Portfolio = () => {
             image: `/assets/aquarius.png`
         },
         {
+            title: 'DIGINET',
+            category: 'product',
+            tags: ['agua'],
+            team: ['Néstor'],
+            role: 'Producto propio',
+            description: 'App para transformar la información de una red de agua desde el formato que tengas (por ejemplo, PDF) a un formato digital estructurado y simulable. Convierte planos y listados en un modelo listo para análisis hidráulico y trabajo operativo.',
+            image: `/assets/diginet.png`
+        },
+        {
+            title: 'LICITADOR',
+            category: 'product',
+            tags: ['agua'],
+            team: ['Edgar'],
+            role: 'Producto propio',
+            description: 'App para buscar y monitorizar licitaciones. Centraliza oportunidades, permite filtrar por palabras clave y criterios, y ayuda a hacer seguimiento del proceso desde el hallazgo hasta la presentación.',
+            image: `/assets/licitador.png`
+        },
+        {
             title: 'Internet Freedom Festival',
             category: 'portfolio',
             tags: ['open source'],
@@ -399,6 +420,14 @@ export const Portfolio = () => {
                         >
                             <Briefcase size={14} /> Experiencia laboral
                             {activeCategory === 'experience' && <X size={14} />}
+                        </button>
+                        <button
+                            className={`pfilter-chip${activeCategory === 'product' ? ' pfilter-chip--active' : ''}${!hasResultsForCategory('product') && activeCategory !== 'product' ? ' pfilter-chip--disabled' : ''}`}
+                            onClick={() => hasResultsForCategory('product') && setActiveCategory(activeCategory === 'product' ? null : 'product')}
+                            disabled={!hasResultsForCategory('product') && activeCategory !== 'product'}
+                        >
+                            <Box size={14} /> Productos propios
+                            {activeCategory === 'product' && <X size={14} />}
                         </button>
                     </div>
                     <div className="pcard-grid">
