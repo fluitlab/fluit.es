@@ -42,9 +42,29 @@ const ProjectCard = ({ project, index }) => (
         transition={{ duration: 0.45, delay: index * 0.05 }}
         className="pcard"
     >
-        {project.image && (
+        {(project.image || project.compositeImages) && (
             <div className="pcard__img-wrap">
-                <img src={project.image} alt={project.title} />
+                {project.compositeImages ? (
+                    <div className="pcard__composite">
+                        <img
+                            className="pcard__composite-main"
+                            src={project.compositeImages[2]}
+                            alt={`${project.title} resultado`}
+                        />
+                        <img
+                            className="pcard__composite-secondary"
+                            src={project.compositeImages[1]}
+                            alt={`${project.title} proceso`}
+                        />
+                        <img
+                            className="pcard__composite-accent"
+                            src={project.compositeImages[0]}
+                            alt={`${project.title} interfaz`}
+                        />
+                    </div>
+                ) : (
+                    <img src={project.image} alt={project.title} />
+                )}
                 <span className={`pcard__badge pcard__badge--${project.category}`}>
                     {project.category === 'portfolio'
                         ? <><Rocket size={12} /> Cliente</>
@@ -342,8 +362,12 @@ export const Portfolio = () => {
             tags: ['agua'],
             team: ['Néstor'],
             role: 'Producto propio',
-            description: 'App para transformar la información de una red de agua desde el formato que tengas (por ejemplo, PDF) a un formato digital estructurado y simulable. Convierte planos y listados en un modelo listo para análisis hidráulico y trabajo operativo.',
-            image: `/assets/diginet.png`
+            description: 'Digitaliza automáticamente planos de redes de agua y saneamiento en formato PDF, transformándolos en capas vectoriales para su procesamiento y generación de un modelo EPANET/SWMM listo para su análisis.',
+            compositeImages: [
+                `/assets/diginet-modal.png`,
+                `/assets/diginet-job.png`,
+                `/assets/diginet-result.png`,
+            ],
         },
         {
             title: 'LICITADOR',
