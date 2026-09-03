@@ -29,12 +29,24 @@ const withMeta = (html, path) => {
   return out
 }
 
+const indexablePaths = () => Object.keys(pageMeta).filter((path) => !pageMeta[path].robots)
+
+const sitemap = () =>
+  [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...indexablePaths().map((path) => `  <url><loc>${siteUrl}${path}</loc></url>`),
+    '</urlset>',
+    '',
+  ].join('\n')
+
 const clientRouteEntries = () => ({
   name: 'client-route-entries',
   closeBundle() {
     const dist = fileURLToPath(new URL('./dist/', import.meta.url))
     const shell = readFileSync(`${dist}index.html`, 'utf8')
 
+    writeFileSync(`${dist}sitemap.xml`, sitemap())
     writeFileSync(`${dist}404.html`, withMeta(shell, '/404'))
 
     for (const path of Object.keys(pageMeta)) {
