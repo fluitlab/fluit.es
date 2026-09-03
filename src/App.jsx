@@ -18,21 +18,27 @@ const ScrollToTop = () => {
   return null;
 };
 
+export const AppShell = () => (
+  <>
+    <ScrollToTop />
+    <div className="app-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Navbar />
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  </>
+);
+
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <div className="app-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Navbar />
-        <main style={{ flex: 1 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppShell />
     </Router>
   );
 }

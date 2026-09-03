@@ -74,21 +74,46 @@ const sitemap = () => {
   ].join('\n')
 }
 
+const withAppHtml = (html, appHtml) =>
+  html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
+
+const page = (shell, path, render) => withAppHtml(withMeta(shell, path), render(path))
+
+const ssrServer = async () => {
+  const { createServer } = await import('vite')
+
+  return createServer({
+    configFile: false,
+    plugins: [react()],
+    server: { middlewareMode: true },
+    appType: 'custom',
+    logLevel: 'error',
+  })
+}
+
 const clientRouteEntries = () => ({
   name: 'client-route-entries',
-  closeBundle() {
+  async closeBundle() {
     const dist = fileURLToPath(new URL('./dist/', import.meta.url))
     const shell = readFileSync(`${dist}index.html`, 'utf8')
+    const server = await ssrServer()
 
-    writeFileSync(`${dist}sitemap.xml`, sitemap())
-    writeFileSync(`${dist}404.html`, withMeta(shell, '/404'))
+    try {
+      const { render } = await server.ssrLoadModule('/src/entry-server.jsx')
 
-    for (const path of Object.keys(pageMeta)) {
-      if (path === '/' || path === '/404') continue
+      writeFileSync(`${dist}sitemap.xml`, sitemap())
+      writeFileSync(`${dist}index.html`, page(shell, '/', render))
+      writeFileSync(`${dist}404.html`, page(shell, '/404', render))
 
-      const route = path.slice(1)
-      mkdirSync(`${dist}${route}`, { recursive: true })
-      writeFileSync(`${dist}${route}/index.html`, withMeta(shell, path))
+      for (const path of Object.keys(pageMeta)) {
+        if (path === '/' || path === '/404') continue
+
+        const route = path.slice(1)
+        mkdirSync(`${dist}${route}`, { recursive: true })
+        writeFileSync(`${dist}${route}/index.html`, page(shell, path, render))
+      }
+    } finally {
+      await server.close()
     }
   },
 })
