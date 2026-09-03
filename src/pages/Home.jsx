@@ -107,8 +107,10 @@ const Hero = () => (
                 animate={{ opacity: 1, y: 0 }}
                 className="hero-inner"
             >
-                <span className="hero-eyebrow">Cooperativa de ingeniería + software</span>
-                <h1 className="hero-title">Ingeniería que <em>fluye</em></h1>
+                <h1 className="hero-title">
+                    <span className="hero-eyebrow">Ingeniería del agua, software e IA · Valencia</span>
+                    <span className="hero-title__claim">Ingeniería que <em>fluye</em></span>
+                </h1>
                 <p className="hero-p" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
                     Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
                 </p>
@@ -359,29 +361,11 @@ const Contact = () => {
     );
 };
 
-const orgSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Fluit',
-    url: 'https://fluit.es',
-    logo: 'https://fluit.es/assets/favicon.svg',
-    description: 'Consultoría de ingeniería hidráulica, desarrollo de software e IA.',
-    email: 'info@fluit.es',
-    address: { '@type': 'PostalAddress', addressLocality: 'Valencia', addressCountry: 'ES' },
-};
-
 export const Home = () => {
-    useMeta({
-        title: 'Fluit — Ingeniería hidráulica, software e IA',
-        description: 'Consultoría de Recursos Hídricos y Desarrollo de Software Especializado. Ingeniería del Agua Potenciada por Datos.',
-        canonical: 'https://fluit.es/',
-        ogTitle: 'Fluit — Ingeniería hidráulica, software e IA',
-        ogUrl: 'https://fluit.es/',
-    });
+    useMeta('/');
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
             <Hero />
             <Identity />
             <ServicesGrid />

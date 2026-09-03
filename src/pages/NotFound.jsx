@@ -5,7 +5,7 @@ import { Home as HomeIcon, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
-    useMeta({ title: '404 — Fluit', robots: 'noindex' });
+    useMeta('/404');
 
     return (
         <div style={{

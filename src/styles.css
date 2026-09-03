@@ -438,6 +438,22 @@ a {
   line-height: 1.1;
 }
 
+.hero-title .hero-eyebrow {
+  font-family:
+    "Space Grotesk",
+    "Outfit",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  line-height: normal;
+  letter-spacing: 0.16em;
+}
+
+.hero-title__claim {
+  display: block;
+}
+
 .hero-title em {
   font-style: normal;
   color: var(--teal);

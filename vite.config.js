@@ -1,21 +1,48 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { copyFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { pageMeta, siteUrl } from './src/pageMeta.js'
 
-const clientRoutes = ['portfolio']
+const replaceAttr = (html, pattern, value) =>
+  html.replace(pattern, (match) => match.replace(/(content|href)="[^"]*"/, `$1="${value}"`))
+
+const withMeta = (html, path) => {
+  const { title, description, robots } = pageMeta[path]
+  const url = `${siteUrl}${path === '/404' ? '/' : path}`
+
+  let out = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+
+  out = replaceAttr(out, /<link rel="canonical"[^>]*>/, url)
+  out = replaceAttr(out, /<meta name="description"[^>]*>/, description)
+  out = replaceAttr(out, /<meta property="og:title"[^>]*>/, title)
+  out = replaceAttr(out, /<meta property="og:description"[^>]*>/, description)
+  out = replaceAttr(out, /<meta property="og:url"[^>]*>/, url)
+  out = replaceAttr(out, /<meta name="twitter:title"[^>]*>/, title)
+  out = replaceAttr(out, /<meta name="twitter:description"[^>]*>/, description)
+
+  if (robots) {
+    out = out.replace(/\s*<link rel="canonical"[^>]*>/, '')
+    out = out.replace('</head>', `  <meta name="robots" content="${robots}" />\n</head>`)
+  }
+
+  return out
+}
 
 const clientRouteEntries = () => ({
   name: 'client-route-entries',
   closeBundle() {
     const dist = fileURLToPath(new URL('./dist/', import.meta.url))
-    const shell = `${dist}index.html`
+    const shell = readFileSync(`${dist}index.html`, 'utf8')
 
-    copyFileSync(shell, `${dist}404.html`)
+    writeFileSync(`${dist}404.html`, withMeta(shell, '/404'))
 
-    for (const route of clientRoutes) {
+    for (const path of Object.keys(pageMeta)) {
+      if (path === '/' || path === '/404') continue
+
+      const route = path.slice(1)
       mkdirSync(`${dist}${route}`, { recursive: true })
-      copyFileSync(shell, `${dist}${route}/index.html`)
+      writeFileSync(`${dist}${route}/index.html`, withMeta(shell, path))
     }
   },
 })
