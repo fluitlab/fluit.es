@@ -1,4 +1,4 @@
-.PHONY: dev build lint preview deploy knip check help
+.PHONY: dev build lint preview knip check help
 
 # Default target
 help:
@@ -8,7 +8,6 @@ help:
 	@echo "  make lint     - Run ESLint"
 	@echo "  make knip     - Run Knip to find unused files/exports"
 	@echo "  make check    - Run both lint and knip"
-	@echo "  make deploy   - Deploy to GitHub Pages"
 	@echo "  make preview  - Preview production build locally"
 
 dev:
@@ -24,9 +23,6 @@ knip:
 	npm run knip
 
 check: lint knip
-
-deploy:
-	npm run deploy
 
 preview:
 	npm run preview
