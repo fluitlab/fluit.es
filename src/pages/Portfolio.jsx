@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 import {
     ArrowRight,
     Box,
@@ -20,27 +20,24 @@ const teamPhotos = {
 const PortfolioHero = () => (
     <header className="hero portfolio-hero">
         <div className="container">
-            <Motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="hero-content portfolio-hero__content"
-            >
+            <div className="hero-content portfolio-hero__content">
                 <h1 className="portfolio-hero__title">Portfolio</h1>
                 <p className="hero-p portfolio-hero__intro">
                     Proyectos que hemos desarrollado y empresas donde hemos crecido.
                 </p>
-            </Motion.div>
+            </div>
         </div>
     </header>
 );
 
-const ProjectCard = ({ project, index }) => (
-    <Motion.article
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: index * 0.05 }}
-        className="pcard"
+const ProjectCard = ({ project, index }) => {
+    const [ref, inView] = useInView();
+
+    return (
+    <article
+        ref={ref}
+        className={`pcard${inView ? ' pcard--visible' : ''}`}
+        style={{ '--reveal-index': index }}
     >
         {(project.image || project.compositeImages) && (
             <div className="pcard__img-wrap">
@@ -161,8 +158,9 @@ const ProjectCard = ({ project, index }) => (
                 </a>
             )}
         </div>
-    </Motion.article>
-);
+    </article>
+    );
+};
 
 const filters = [
     { key: 'agua', label: 'Agua' },
@@ -457,11 +455,9 @@ export const Portfolio = () => {
                         </button>
                     </div>
                     <div className="pcard-grid">
-                        <AnimatePresence mode="popLayout">
-                            {filtered.map((project, index) => (
-                                <ProjectCard key={project.title} project={project} index={index} />
-                            ))}
-                        </AnimatePresence>
+                        {filtered.map((project, index) => (
+                            <ProjectCard key={project.title} project={project} index={index} />
+                        ))}
                     </div>
                 </div>
             </section>

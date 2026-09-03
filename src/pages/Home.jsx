@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { Link } from 'react-router-dom';
-import { motion as Motion } from 'framer-motion';
-import pecesVideo from '../assets/background.mp4';
 import {
     Droplets,
     Code2,
@@ -91,7 +89,7 @@ const Hero = () => (
     <header id="home" className="hero">
         <video
             className="hero-video-bg"
-            src={pecesVideo}
+            src="/assets/background.mp4"
             autoPlay
             loop
             muted
@@ -102,11 +100,7 @@ const Hero = () => (
         <div className="hero-graphics hero-graphics--left" aria-hidden="true" />
         <div className="hero-graphics hero-graphics--right" aria-hidden="true" />
         <div className="container">
-            <Motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="hero-inner"
-            >
+            <div className="hero-inner">
                 <h1 className="hero-title">
                     <span className="hero-eyebrow">Ingeniería del agua, software e IA · Valencia</span>
                     <span className="hero-title__claim">Ingeniería que <em>fluye</em></span>
@@ -122,7 +116,7 @@ const Hero = () => (
                         Hablemos
                     </a>
                 </div>
-            </Motion.div>
+            </div>
         </div>
     </header>
 );

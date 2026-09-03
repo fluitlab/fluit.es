@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SCROLL_DELAY_MS = 50;
@@ -112,28 +111,19 @@ export const Navbar = () => {
                 </button>
             </div>
 
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <Motion.div
-                        initial={{ x: '100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '100%' }}
-                        className="mobile-drawer"
-                    >
-                        <nav className="mobile-nav-links">
-                            {navLinks.map(link => (
-                                <Link
-                                    key={link.name}
-                                    to={link.href}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </nav>
-                    </Motion.div>
-                )}
-            </AnimatePresence>
+            <div className={`mobile-drawer${mobileMenuOpen ? ' mobile-drawer--open' : ''}`}>
+                <nav className="mobile-nav-links">
+                    {navLinks.map(link => (
+                        <Link
+                            key={link.name}
+                            to={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                </nav>
+            </div>
         </nav>
     );
 };

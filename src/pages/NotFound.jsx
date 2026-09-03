@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMeta } from '../hooks/useMeta';
-import { motion as Motion } from 'framer-motion';
 import { Home as HomeIcon, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -8,20 +7,8 @@ export const NotFound = () => {
     useMeta('/404');
 
     return (
-        <div style={{
-            minHeight: '80vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            padding: '2rem'
-        }}>
-            <Motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                style={{ maxWidth: '500px' }}
-            >
+        <div className="notfound">
+            <div className="notfound__inner">
                 <div style={{
                     width: '80px',
                     height: '80px',
@@ -47,7 +34,7 @@ export const NotFound = () => {
                     <HomeIcon size={18} />
                     Volver al Inicio
                 </Link>
-            </Motion.div>
+            </div>
         </div>
     );
 };
