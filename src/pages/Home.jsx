@@ -153,10 +153,10 @@ const Identity = () => (
 );
 
 const founders = [
-    { name: 'Edgar Belda',      photo: 'edgar.jpg',   role: 'Full-stack · Hidráulica',      linkedin: 'edgarbelda' },
-    { name: 'Elena Melchor',    photo: 'elena.jpg',   role: 'Full-stack · Backend · GIS',   linkedin: 'emelgil' },
-    { name: 'Néstor Lerma',     photo: 'nestor.jpg',  role: 'Full-stack · Hidráulica',      linkedin: 'neslerel' },
-    { name: 'Vicente Baixauli', photo: 'vicente.jpg', role: 'Full-stack · Plataforma · IA', linkedin: 'vibaiher' },
+    { name: 'Edgar Belda',      photo: 'edgar.webp',   role: 'Full-stack · Hidráulica',      linkedin: 'edgarbelda' },
+    { name: 'Elena Melchor',    photo: 'elena.webp',   role: 'Full-stack · Backend · GIS',   linkedin: 'emelgil' },
+    { name: 'Néstor Lerma',     photo: 'nestor.webp',  role: 'Full-stack · Hidráulica',      linkedin: 'neslerel' },
+    { name: 'Vicente Baixauli', photo: 'vicente.webp', role: 'Full-stack · Plataforma · IA', linkedin: 'vibaiher' },
 ];
 
 const TeamSection = () => (
@@ -168,7 +168,7 @@ const TeamSection = () => (
                 {founders.map(({ name, photo, role, linkedin }) => (
                     <a key={linkedin} href={`https://www.linkedin.com/in/${linkedin}/`} target="_blank" rel="noopener noreferrer" className="founder">
                         <div className="founder-photo">
-                            <img src={`/assets/${photo}`} alt={name} />
+                            <img src={`/assets/${photo}`} alt={name} loading="lazy" decoding="async" />
                         </div>
                         <h3>{name}</h3>
                         <p className="founder-role">{role}</p>
@@ -233,7 +233,7 @@ const ServicesGrid = () => (
                 <div className="client-logos__row">
                     {clientLogos.map((client, i) => (
                         <a key={i} href={client.url} target="_blank" rel="noopener noreferrer" className="client-logos__item" title={client.alt}>
-                            <img src={`/assets/${client.src}`} alt={client.alt} className="client-logos__img" />
+                            <img src={`/assets/${client.src}`} alt={client.alt} className="client-logos__img" loading="lazy" decoding="async" />
                         </a>
                     ))}
                 </div>

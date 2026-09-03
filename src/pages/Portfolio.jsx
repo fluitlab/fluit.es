@@ -11,10 +11,10 @@ import {
 } from 'lucide-react';
 
 const teamPhotos = {
-    Edgar: { photo: 'edgar.jpg', name: 'Edgar' },
-    Elena: { photo: 'elena.jpg', name: 'Elena' },
-    Néstor: { photo: 'nestor.jpg', name: 'Néstor' },
-    Vicente: { photo: 'vicente.jpg', name: 'Vicente' },
+    Edgar: { photo: 'edgar.webp', name: 'Edgar' },
+    Elena: { photo: 'elena.webp', name: 'Elena' },
+    Néstor: { photo: 'nestor.webp', name: 'Néstor' },
+    Vicente: { photo: 'vicente.webp', name: 'Vicente' },
 };
 
 const PortfolioHero = () => (
@@ -50,20 +50,26 @@ const ProjectCard = ({ project, index }) => (
                             className="pcard__composite-main"
                             src={project.compositeImages[2]}
                             alt={`${project.title} resultado`}
+                            loading="lazy"
+                            decoding="async"
                         />
                         <img
                             className="pcard__composite-secondary"
                             src={project.compositeImages[1]}
                             alt={`${project.title} proceso`}
+                            loading="lazy"
+                            decoding="async"
                         />
                         <img
                             className="pcard__composite-accent"
                             src={project.compositeImages[0]}
                             alt={`${project.title} interfaz`}
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 ) : (
-                    <img src={project.image} alt={project.title} />
+                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 )}
                 <span className={`pcard__badge pcard__badge--${project.category}`}>
                     {project.category === 'portfolio'
@@ -86,7 +92,9 @@ const ProjectCard = ({ project, index }) => (
                                 <img
                                     src={`/assets/${info.photo}`}
                                     alt={info.name}
-                                />
+                            loading="lazy"
+                            decoding="async"
+                        />
                             </span>
                         );
                     })}
@@ -192,7 +200,7 @@ export const Portfolio = () => {
                 'Miro', 'Tinybird'
             ],
             link: 'https://qatium.com',
-            image: `/assets/qatium.jpg`
+            image: `/assets/qatium.webp`
         },
         {
             title: 'Depuradora Quart Benàger',
@@ -210,7 +218,7 @@ export const Portfolio = () => {
             technologies: [
                 'Angular', 'Node.js', 'Nexus', 'Scilab', 'MongoDB'
             ],
-            image: `/assets/depuradora.jpg`
+            image: `/assets/depuradora.webp`
         },
         {
             title: 'QGISRed',
@@ -229,7 +237,7 @@ export const Portfolio = () => {
                 'C#', 'XAML', 'Python', 'QGIS'
             ],
             link: 'https://qgisred.upv.es',
-            image: `/assets/qgisred.jpg`
+            image: `/assets/qgisred.webp`
         },
         {
             title: 'Water4Cast',
@@ -248,7 +256,7 @@ export const Portfolio = () => {
                 'HTML', 'CSS', 'TypeScript', 'OpenStreetMaps'
             ],
             link: 'https://water4cast.webs.upv.es',
-            image: `/assets/water4cast.png`
+            image: `/assets/water4cast.webp`
         },
         {
             title: 'Flywire',
@@ -268,7 +276,7 @@ export const Portfolio = () => {
                 'AWS', 'Docker', 'Terraform', 'PostgreSQL'
             ],
             link: 'https://www.flywire.com',
-            image: `/assets/flywire.jpg`
+            image: `/assets/flywire.webp`
         },
         {
             title: 'Nextail',
@@ -287,7 +295,7 @@ export const Portfolio = () => {
                 'Terraform', 'React', 'PostgreSQL'
             ],
             link: 'https://nextail.co',
-            image: `/assets/nextail.png`
+            image: `/assets/nextail.webp`
         },
         {
             title: 'Fundación Valenciaport',
@@ -306,7 +314,7 @@ export const Portfolio = () => {
                 'Node.js', 'SQL', 'Python', 'Angular', 'Docker'
             ],
             link: 'https://www.fundacion.valenciaport.com/proyecto/e2rm-empty-equipment-repository-management/',
-            image: `/assets/valenciaport.jpg`
+            image: `/assets/valenciaport.webp`
         },
         {
             title: 'Aquatool',
@@ -328,7 +336,7 @@ export const Portfolio = () => {
                 'C#', 'VB.NET', 'Windows Forms', 'XAML', 'VBA', 'DotSpatial'
             ],
             link: 'https://aquatool.webs.upv.es',
-            image: `/assets/aquatool.jpg`
+            image: `/assets/aquatool.webp`
         },
         {
             title: 'Aquarius',
@@ -348,7 +356,7 @@ export const Portfolio = () => {
                 'Excel Export', 'CLI Tools', 'Logging & Auditing'
             ],
             link: 'https://aquaticinformatics.com/products/aquarius-environmental-water-data-management/',
-            image: `/assets/aquarius.png`
+            image: `/assets/aquarius.webp`
         },
         {
             title: 'DIGINET',
@@ -358,9 +366,9 @@ export const Portfolio = () => {
             role: 'Producto propio',
             description: 'Digitaliza automáticamente planos de redes de agua y saneamiento en formato PDF, transformándolos en capas vectoriales para su procesamiento y generación de un modelo EPANET/SWMM listo para su análisis.',
             compositeImages: [
-                `/assets/diginet-modal.png`,
-                `/assets/diginet-job.png`,
-                `/assets/diginet-result.png`,
+                `/assets/diginet-modal.webp`,
+                `/assets/diginet-job.webp`,
+                `/assets/diginet-result.webp`,
             ],
         },
         {
@@ -370,7 +378,7 @@ export const Portfolio = () => {
             team: ['Edgar'],
             role: 'Producto propio',
             description: 'App para buscar y monitorizar licitaciones. Centraliza oportunidades, permite filtrar por palabras clave y criterios, y ayuda a hacer seguimiento del proceso desde el hallazgo hasta la presentación.',
-            image: `/assets/licitador.png`
+            image: `/assets/licitador.webp`
         },
         {
             title: 'Internet Freedom Festival',
@@ -388,7 +396,7 @@ export const Portfolio = () => {
                 'Ruby', 'Rails', 'Bootstrap'
             ],
             link: 'https://internetfreedomfestival.org',
-            image: `/assets/iff.jpg`
+            image: `/assets/iff.webp`
         }
     ];
 
