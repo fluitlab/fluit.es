@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { pageMeta, siteUrl } from './src/pageMeta.js'
 
@@ -31,14 +32,47 @@ const withMeta = (html, path) => {
 
 const indexablePaths = () => Object.keys(pageMeta).filter((path) => !pageMeta[path].robots)
 
-const sitemap = () =>
-  [
+const routeSources = {
+  '/': ['src/pages/Home.jsx', 'src/pageMeta.js'],
+  '/portfolio': ['src/pages/Portfolio.jsx', 'src/pageMeta.js'],
+}
+
+const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim()
+
+const hasFullHistory = () => {
+  try {
+    return git('rev-parse', '--is-shallow-repository') === 'false'
+  } catch {
+    return false
+  }
+}
+
+const lastModified = (path) => {
+  const dates = (routeSources[path] ?? [])
+    .map((file) => git('log', '-1', '--format=%cs', '--', file))
+    .filter(Boolean)
+
+  return dates.sort().at(-1)
+}
+
+const sitemapEntry = (path, datedByGit) => {
+  const lastmod = datedByGit ? lastModified(path) : undefined
+  const loc = `<loc>${siteUrl}${path}</loc>`
+
+  return `  <url>${loc}${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`
+}
+
+const sitemap = () => {
+  const datedByGit = hasFullHistory()
+
+  return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...indexablePaths().map((path) => `  <url><loc>${siteUrl}${path}</loc></url>`),
+    ...indexablePaths().map((path) => sitemapEntry(path, datedByGit)),
     '</urlset>',
     '',
   ].join('\n')
+}
 
 const clientRouteEntries = () => ({
   name: 'client-route-entries',
