@@ -6,8 +6,8 @@ export const pageMeta = {
         description: 'Consultoría de Recursos Hídricos y Desarrollo de Software Especializado. Ingeniería del Agua Potenciada por Datos.',
     },
     '/portfolio': {
-        title: 'Portfolio — Fluit',
-        description: 'Proyectos de ingeniería hidráulica, desarrollo de software e IA realizados por el equipo de Fluit.',
+        title: 'Fluit — Portfolio de ingeniería del agua, software e IA',
+        description: 'Casos reales de Fluit: modelación hidráulica y gemelos digitales para gestores de agua, plugins de QGIS, plataformas de predicción y software a medida.',
     },
     '/404': {
         title: '404 — Fluit',
