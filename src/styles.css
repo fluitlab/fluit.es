@@ -29,7 +29,7 @@
 
 body {
   font-family:
-    "Space Grotesk",
+    "Space Grotesk Variable",
     "Outfit",
     system-ui,
     -apple-system,
@@ -51,7 +51,7 @@ h2,
 .about-text h2,
 .portfolio-hero__title,
 .cta-content h2 {
-  font-family: "Fraunces", "Space Grotesk", serif;
+  font-family: "Fraunces Variable", "Space Grotesk Variable", serif;
   letter-spacing: 0.01em;
 }
 
@@ -452,7 +452,7 @@ a {
 
 .hero-title .hero-eyebrow {
   font-family:
-    "Space Grotesk",
+    "Space Grotesk Variable",
     "Outfit",
     system-ui,
     -apple-system,
