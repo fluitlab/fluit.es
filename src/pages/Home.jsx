@@ -264,6 +264,8 @@ const ServicesGrid = () => (
     </section>
 );
 
+const formspreeUrl = "https://formspree.io/f/xvzbgdnz";
+
 const Contact = () => {
     const formRef = useRef(null);
     const [status, setStatus] = useState({ state: 'idle', message: '' }); // idle | sending | success | error
@@ -274,18 +276,9 @@ const Contact = () => {
         const honey = formRef.current?.querySelector('input[name="website"]')?.value;
         if (honey) return;
 
-        const formId = "xvzbgdnz";
-        if (!formId) {
-            setStatus({
-                state: 'error',
-                message: 'Falta configurar Formspree (VITE_FORMSPREE_FORM_ID).'
-            });
-            return;
-        }
-
         try {
             setStatus({ state: 'sending', message: '' });
-            const res = await fetch(`https://formspree.io/f/${formId}`, {
+            const res = await fetch(formspreeUrl, {
                 method: 'POST',
                 body: new FormData(formRef.current),
                 headers: { Accept: 'application/json' }

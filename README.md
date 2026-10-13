@@ -6,7 +6,6 @@ Website for [Fluit Coop. V.](https://fluit.es) — a hydraulic engineering, soft
 
 - React 19 + React Router
 - Vite
-- Framer Motion
 - Lucide icons
 
 ## Development
