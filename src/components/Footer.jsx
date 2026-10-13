@@ -18,6 +18,7 @@ export const Footer = () => (
                 <p className="footer-col__heading">Legal</p>
                 <p>© {new Date().getFullYear()} Fluit Coop. V.</p>
                 <p>Cooperativa de Trabajo Asociado</p>
+                <a href="/legal">Aviso legal y privacidad</a>
             </div>
         </div>
     </footer>

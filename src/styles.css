@@ -1346,6 +1346,51 @@ a {
   max-width: 600px;
 }
 
+/* Legal page */
+.legal {
+  max-width: 760px;
+  padding-bottom: 5rem;
+  line-height: 1.7;
+}
+
+.legal__section {
+  margin-top: 3rem;
+}
+
+.legal__section h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.legal__section a {
+  color: var(--teal);
+}
+
+.legal__facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.legal__facts dt {
+  font-weight: 600;
+}
+
+.legal__facts dd {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .legal__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .legal__facts dd {
+    margin-bottom: 0.75rem;
+  }
+}
+
 /* Portfolio page — card grid */
 .portfolio-grid-section {
   background: var(--gray-bg);
@@ -1800,6 +1845,17 @@ a {
   margin-top: 0.9rem;
   font-size: 0.95rem;
   color: var(--text-muted);
+}
+
+.contact-form__privacy {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.contact-form__privacy a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .contact-form__notice--ok {

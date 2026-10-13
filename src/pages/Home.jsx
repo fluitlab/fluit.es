@@ -360,6 +360,13 @@ const Contact = () => {
                                 </button>
                             </div>
 
+                            <p className="contact-form__privacy">
+                                <strong>Responsable:</strong> FLUIT, COOP. V. ·{' '}
+                                <strong>Finalidad:</strong> responder a tu consulta ·{' '}
+                                <strong>Derechos:</strong> acceso, rectificación, supresión y otros en
+                                info@fluit.es · <a href="/legal#privacidad">Más información</a>
+                            </p>
+
                             {status.state !== 'idle' && (
                                 <p
                                     className={`contact-form__notice ${

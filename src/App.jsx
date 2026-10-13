@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Portfolio } from './pages/Portfolio';
+import { Legal } from './pages/Legal';
 import { NotFound } from './pages/NotFound';
 
 const ScrollToTop = () => {
@@ -27,6 +28,7 @@ export const AppShell = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/legal" element={<Legal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

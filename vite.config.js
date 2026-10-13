@@ -35,6 +35,7 @@ const indexablePaths = () => Object.keys(pageMeta).filter((path) => !pageMeta[pa
 const routeSources = {
   '/': ['src/pages/Home.jsx', 'src/pageMeta.js'],
   '/portfolio': ['src/pages/Portfolio.jsx', 'src/pageMeta.js'],
+  '/legal': ['src/pages/Legal.jsx', 'src/pageMeta.js'],
 }
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim()

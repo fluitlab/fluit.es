@@ -9,6 +9,10 @@ export const pageMeta = {
         title: 'Fluit — Portfolio de ingeniería del agua, software e IA',
         description: 'Casos reales de Fluit: modelación hidráulica y gemelos digitales para gestores de agua, plugins de QGIS, plataformas de predicción y software a medida.',
     },
+    '/legal': {
+        title: 'Aviso legal y privacidad — Fluit',
+        description: 'Datos del titular de fluit.es, política de privacidad y uso de cookies de FLUIT, COOP. V.',
+    },
     '/404': {
         title: '404 — Fluit',
         description: 'La página que buscas no existe.',
