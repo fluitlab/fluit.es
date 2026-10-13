@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMeta } from '../hooks/useMeta';
 
 const company = {

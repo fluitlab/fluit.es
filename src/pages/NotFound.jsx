@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { Home as HomeIcon, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { Link } from 'react-router-dom';
 import {
@@ -10,8 +10,7 @@ import {
     Users,
     Target,
     BrainCircuit,
-    Cpu,
-    MessagesSquare
+    Cpu
 } from 'lucide-react';
 
 const LinkedinIcon = ({ size = 20 }) => (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { useInView } from '../hooks/useInView';
 import {
