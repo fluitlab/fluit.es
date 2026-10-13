@@ -11,16 +11,18 @@ Website for [Fluit Coop. V.](https://fluit.es) — a hydraulic engineering, soft
 
 ## Development
 
+Requires [pnpm](https://pnpm.io) and [just](https://just.systems). Run `just` to list the recipes.
+
 ```bash
-npm install
-npm run dev
+just install
+just dev
 ```
 
 ## Build
 
 ```bash
-npm run build
-npm run preview  # local preview of the build
+just build
+just preview  # local preview of the build
 ```
 
 ## Deployment
