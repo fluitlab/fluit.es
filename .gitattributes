@@ -1,0 +1,6 @@
+# LF en repo y en disco para todos los SO; manda sobre el core.autocrlf de cada máquina
+* text=auto eol=lf
+
+# Los scripts de cmd de Windows son lo único que exige CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
