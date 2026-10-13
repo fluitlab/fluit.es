@@ -121,4 +121,5 @@ const clientRouteEntries = () => ({
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), clientRouteEntries()],
+  build: { assetsDir: 'static' },
 })
