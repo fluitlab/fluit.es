@@ -263,8 +263,6 @@ const ServicesGrid = () => (
     </section>
 );
 
-const formspreeUrl = "https://formspree.io/f/xvzbgdnz";
-
 const Contact = () => {
     const formRef = useRef(null);
     const [status, setStatus] = useState({ state: 'idle', message: '' }); // idle | sending | success | error
@@ -277,12 +275,11 @@ const Contact = () => {
 
         try {
             setStatus({ state: 'sending', message: '' });
-            const res = await fetch(formspreeUrl, {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
-                body: new FormData(formRef.current),
-                headers: { Accept: 'application/json' }
+                body: new FormData(formRef.current)
             });
-            if (!res.ok) throw new Error('Formspree error');
+            if (!res.ok) throw new Error(`Contact form failed: ${res.status}`);
             formRef.current?.reset();
             setStatus({ state: 'success', message: '¡Gracias! Te escribimos en breve.' });
         } catch  {

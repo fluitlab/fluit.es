@@ -30,4 +30,8 @@ export default defineConfig([
       'no-unused-vars': ['warn', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
     },
   },
+  {
+    files: ['worker/**/*.test.js'],
+    languageOptions: { globals: globals.node },
+  },
 ])

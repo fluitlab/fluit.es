@@ -38,6 +38,10 @@ lint:
 lint-fix:
     pnpm lint:fix
 
+# Tests
+test:
+    pnpm test
+
 # Busca código muerto (ficheros, exports y dependencias sin usar)
 knip:
     pnpm knip
@@ -45,7 +49,7 @@ knip:
 # Ojo: "pnpm run ci", no "pnpm ci". "ci" es un comando reservado de pnpm y no
 # ejecuta el script del package.json (falla con ERR_PNPM_CI_NOT_IMPLEMENTED).
 
-# Lint + knip + build: lo mismo que ejecuta GitHub Actions
+# Lint + knip + test + build: lo mismo que ejecuta GitHub Actions
 ci:
     pnpm run ci
 

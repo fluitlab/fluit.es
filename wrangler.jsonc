@@ -1,13 +1,21 @@
 {
   "name": "fluit-es",
+  "main": "worker/index.js",
   "compatibility_date": "2026-09-03",
   "workers_dev": false,
   "preview_urls": false,
   "routes": [
     { "pattern": "fluit.es", "custom_domain": true }
   ],
+  "vars": {
+    "SITE_ORIGIN": "https://fluit.es",
+    "MAIL_SENDER": "edgar@fluit.es",
+    "MAIL_TO": "info@fluit.es"
+  },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   }

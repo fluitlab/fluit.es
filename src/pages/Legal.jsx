@@ -73,15 +73,20 @@ const PrivacyPolicy = () => (
         </p>
         <ul>
             <li>
-                <strong>Formspree, Inc.</strong> (Estados Unidos), que recibe los mensajes del
-                formulario y nos los reenvía. La transferencia internacional se ampara en las
-                cláusulas contractuales tipo de la Comisión Europea.
+                <strong>Google Ireland Limited</strong> (Google Workspace), que gestiona nuestro
+                correo electrónico, donde recibimos los mensajes del formulario.
             </li>
             <li>
-                <strong>Cloudflare, Inc.</strong>, que aloja este sitio y nos da estadísticas de
-                visitas agregadas, sin cookies y sin identificar a quien visita la web.
+                <strong>Cloudflare, Inc.</strong>, que aloja este sitio, procesa el envío del
+                formulario y nos da estadísticas de visitas agregadas, sin cookies y sin identificar
+                a quien visita la web.
             </li>
         </ul>
+        <p>
+            Ambos pueden tratar datos fuera del Espacio Económico Europeo. Esas transferencias se
+            amparan en el Marco de Privacidad de Datos UE-EE. UU. y en las cláusulas contractuales
+            tipo de la Comisión Europea.
+        </p>
 
         <h3>Cuánto tiempo los conservamos</h3>
         <p>

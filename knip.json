@@ -2,9 +2,11 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": [
     "src/main.{js,jsx,ts,tsx}!",
-    "src/entry-server.jsx"
+    "src/entry-server.jsx",
+    "worker/index.js!"
   ],
   "project": [
-    "src/**/*.{js,jsx,ts,tsx}!"
+    "src/**/*.{js,jsx,ts,tsx}!",
+    "worker/**/*.js!"
   ]
 }
