@@ -87,6 +87,7 @@ const ssrServer = async () => {
     plugins: [react()],
     server: { middlewareMode: true },
     appType: 'custom',
+    optimizeDeps: { noDiscovery: true },
     logLevel: 'error',
   })
 }
