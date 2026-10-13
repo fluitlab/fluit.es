@@ -365,22 +365,6 @@ a {
   pointer-events: none;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(
-      circle at 15% 25%,
-      rgba(26, 167, 161, 0.18),
-      transparent 45%
-    ),
-    radial-gradient(circle at 80% 80%, rgba(255, 125, 92, 0.2), transparent 35%);
-  mix-blend-mode: screen;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .hero-video-bg {
   position: absolute;
   top: 50%;
@@ -498,33 +482,6 @@ a {
   background: rgba(255, 210, 122, 0.6);
   z-index: -1;
   border-radius: 999px;
-}
-
-.hero-graphics {
-  position: absolute;
-  width: 90px;
-  height: 260px;
-  border-radius: 999px;
-  background: linear-gradient(
-    180deg,
-    rgba(26, 167, 161, 0.9),
-    rgba(255, 210, 122, 0.9)
-  );
-  mix-blend-mode: screen;
-  filter: blur(2px);
-  opacity: 0.75;
-}
-
-.hero-graphics--left {
-  left: 5%;
-  top: 15%;
-  transform: rotate(20deg);
-}
-
-.hero-graphics--right {
-  right: 5%;
-  top: 5%;
-  transform: rotate(-15deg);
 }
 
 /* Client logos bar */
@@ -1362,7 +1319,6 @@ a {
 }
 
 .portfolio-hero::before,
-.portfolio-hero::after,
 .portfolio-hero .hero-overlay {
   display: none;
 }
@@ -2035,14 +1991,6 @@ a {
     margin-bottom: 1.5rem;
   }
 
-  .hero-graphics--left {
-    left: -20px;
-  }
-
-  .hero-graphics--right {
-    right: -20px;
-  }
-
   .founders-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
@@ -2138,16 +2086,6 @@ a {
     gap: 1rem;
     margin-left: 0;
     justify-content: center;
-  }
-
-  .hero-graphics--left {
-    left: -40px;
-    top: 20%;
-  }
-
-  .hero-graphics--right {
-    right: -40px;
-    top: 8%;
   }
 
   .section {

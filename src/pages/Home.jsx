@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { Link } from 'react-router-dom';
 import {
@@ -85,41 +85,64 @@ const clientLogos = [
     { src: "logo-aquatic-informatics.png", alt: "Aquatic Informatics", url: "https://aquaticinformatics.com" }
 ];
 
-const Hero = () => (
-    <header id="home" className="hero">
-        <video
-            className="hero-video-bg"
-            src="/assets/background.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-hidden="true"
-        />
-        <div className="hero-overlay" aria-hidden="true" />
-        <div className="hero-graphics hero-graphics--left" aria-hidden="true" />
-        <div className="hero-graphics hero-graphics--right" aria-hidden="true" />
-        <div className="container">
-            <div className="hero-inner">
-                <h1 className="hero-title">
-                    <span className="hero-eyebrow">Ingeniería del agua, software e IA · Valencia</span>
-                    <span className="hero-title__claim">Ingeniería que <em>fluye</em></span>
-                </h1>
-                <p className="hero-p" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
-                    Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
-                </p>
-                <div className="btn-group">
-                    <a href="#identity" className="btn btn-primary">
-                        Conócenos <ArrowRight size={16} style={{ marginLeft: '0.25rem' }} />
-                    </a>
-                    <a href="#contact" className="btn btn-dark">
-                        Hablemos
-                    </a>
+const useBackgroundVideo = () => {
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return undefined;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) video.play().catch(() => {});
+            else video.pause();
+        });
+        observer.observe(video);
+        return () => observer.disconnect();
+    }, []);
+
+    return videoRef;
+};
+
+const Hero = () => {
+    const videoRef = useBackgroundVideo();
+
+    return (
+        <header id="home" className="hero">
+            <video
+                ref={videoRef}
+                className="hero-video-bg"
+                src="/assets/background.mp4"
+                poster="/assets/background-poster.webp"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+            />
+            <div className="hero-overlay" aria-hidden="true" />
+            <div className="container">
+                <div className="hero-inner">
+                    <h1 className="hero-title">
+                        <span className="hero-eyebrow">Ingeniería del agua, software e IA · Valencia</span>
+                        <span className="hero-title__claim">Ingeniería que <em>fluye</em></span>
+                    </h1>
+                    <p className="hero-p" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                        Somos ingenieros hidráulicos, desarrolladores de software y especialistas en IA. Resolvemos problemas complejos combinando lo mejor de cada mundo.
+                    </p>
+                    <div className="btn-group">
+                        <a href="#identity" className="btn btn-primary">
+                            Conócenos <ArrowRight size={16} style={{ marginLeft: '0.25rem' }} />
+                        </a>
+                        <a href="#contact" className="btn btn-dark">
+                            Hablemos
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-);
+        </header>
+    );
+};
 
 const identityCards = [
     { icon: <Droplets size={28} />, title: 'Ingeniería Hidráulica',  desc: 'Tu consultora de recursos hídricos. Modelación, planificación y conexión directa con centros de investigación de referencia.' },
