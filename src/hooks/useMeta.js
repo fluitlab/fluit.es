@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { pageMeta, siteUrl } from '../pageMeta';
+import { defaultShareImage, pageMeta, siteUrl } from '../pageMeta';
 
 const setMeta = (selector, attr, value) => {
     const el = document.querySelector(selector);
@@ -17,8 +17,9 @@ const setRobots = (value) => {
 };
 
 export const useMeta = (path) => {
-    const { title, description, robots } = pageMeta[path];
+    const { title, description, robots, shareImage = defaultShareImage } = pageMeta[path];
     const url = `${siteUrl}${path === '/404' ? '/' : path}`;
+    const shareImageUrl = `${siteUrl}${shareImage.path}`;
 
     useEffect(() => {
         document.title = title;
@@ -30,6 +31,10 @@ export const useMeta = (path) => {
         setMeta('meta[name="twitter:title"]', 'content', title);
         setMeta('meta[property="og:url"]', 'content', url);
         setMeta('link[rel="canonical"]', 'href', url);
+        setMeta('meta[property="og:image"]', 'content', shareImageUrl);
+        setMeta('meta[property="og:image:alt"]', 'content', shareImage.alt);
+        setMeta('meta[name="twitter:image"]', 'content', shareImageUrl);
+        setMeta('meta[name="twitter:image:alt"]', 'content', shareImage.alt);
         setRobots(robots);
-    }, [title, description, robots, url]);
+    }, [title, description, robots, url, shareImageUrl, shareImage.alt]);
 };

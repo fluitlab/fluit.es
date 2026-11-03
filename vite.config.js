@@ -3,14 +3,15 @@ import react from '@vitejs/plugin-react'
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
-import { pageMeta, siteUrl } from './src/pageMeta.js'
+import { defaultShareImage, pageMeta, siteUrl } from './src/pageMeta.js'
 
 const replaceAttr = (html, pattern, value) =>
   html.replace(pattern, (match) => match.replace(/(content|href)="[^"]*"/, `$1="${value}"`))
 
 const withMeta = (html, path) => {
-  const { title, description, robots } = pageMeta[path]
+  const { title, description, robots, shareImage = defaultShareImage } = pageMeta[path]
   const url = `${siteUrl}${path === '/404' ? '/' : path}`
+  const shareImageUrl = `${siteUrl}${shareImage.path}`
 
   let out = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
 
@@ -21,6 +22,10 @@ const withMeta = (html, path) => {
   out = replaceAttr(out, /<meta property="og:url"[^>]*>/, url)
   out = replaceAttr(out, /<meta name="twitter:title"[^>]*>/, title)
   out = replaceAttr(out, /<meta name="twitter:description"[^>]*>/, description)
+  out = replaceAttr(out, /<meta property="og:image"[^>]*>/, shareImageUrl)
+  out = replaceAttr(out, /<meta property="og:image:alt"[^>]*>/, shareImage.alt)
+  out = replaceAttr(out, /<meta name="twitter:image"[^>]*>/, shareImageUrl)
+  out = replaceAttr(out, /<meta name="twitter:image:alt"[^>]*>/, shareImage.alt)
 
   if (robots) {
     out = out.replace(/\s*<link rel="canonical"[^>]*>/, '')
@@ -36,6 +41,7 @@ const routeSources = {
   '/': ['src/pages/Home.jsx', 'src/pageMeta.js'],
   '/portfolio': ['src/pages/Portfolio.jsx', 'src/pageMeta.js'],
   '/legal': ['src/pages/Legal.jsx', 'src/pageMeta.js'],
+  '/productos/mamafit': ['src/pages/MamaFit.jsx', 'src/pageMeta.js'],
 }
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim()

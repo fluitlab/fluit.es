@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMeta } from '../hooks/useMeta';
 import { useInView } from '../hooks/useInView';
+import { Link } from 'react-router-dom';
 import {
     ArrowRight,
     Box,
@@ -147,6 +148,12 @@ const ProjectCard = ({ project, index }) => {
                 </div>
             )}
 
+            {project.page && (
+                <Link to={project.page} className="pcard__link">
+                    Ver producto <ArrowRight size={14} />
+                </Link>
+            )}
+
             {project.link && (
                 <a
                     href={project.link}
@@ -168,6 +175,7 @@ const filters = [
     { key: 'retail', label: 'Retail' },
     { key: 'logística', label: 'Logística' },
     { key: 'open source', label: 'Open Source' },
+    { key: 'salud', label: 'Salud' },
 ];
 
 export const Portfolio = () => {
@@ -377,6 +385,16 @@ export const Portfolio = () => {
             role: 'Producto propio',
             description: 'App para buscar y monitorizar licitaciones. Centraliza oportunidades, permite filtrar por palabras clave y criterios, y ayuda a hacer seguimiento del proceso desde el hallazgo hasta la presentación.',
             image: `/assets/licitador.webp`
+        },
+        {
+            title: 'MamaFit',
+            category: 'product',
+            tags: ['salud'],
+            team: [],
+            role: 'Producto propio',
+            description: 'MamaFit conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
+            page: '/productos/mamafit',
+            image: `/assets/mamafit-ficha-paciente.webp`
         },
         {
             title: 'Internet Freedom Festival',
