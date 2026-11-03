@@ -394,7 +394,7 @@ export const Portfolio = () => {
             role: 'Producto propio',
             description: 'MamaFit conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
             page: '/productos/mamafit',
-            image: `/assets/mamafit-ficha-paciente.webp`
+            image: `/assets/mamafit-portada.webp`
         },
         {
             title: 'Internet Freedom Festival',

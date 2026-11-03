@@ -22,7 +22,7 @@ export const pageMeta = {
         title: 'MamaFit — Ejercicio y seguimiento en cáncer de mama · Fluit',
         description: 'MamaFit conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
         shareImage: {
-            path: '/assets/mamafit-og-tmp.png',
+            path: '/assets/mamafit-og.png',
             alt: 'MamaFit — Ejercicio y seguimiento en cáncer de mama',
         },
     },
