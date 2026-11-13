@@ -101,6 +101,7 @@ const ssrServer = async () => {
 
 const clientRouteEntries = () => ({
   name: 'client-route-entries',
+  apply: 'build',
   async closeBundle() {
     const dist = fileURLToPath(new URL('./dist/', import.meta.url))
     const shell = readFileSync(`${dist}index.html`, 'utf8')
