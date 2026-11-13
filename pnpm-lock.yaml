@@ -38,7 +38,7 @@ importers:
         version: 19.2.3(@types/react@19.2.10)
       '@vitejs/plugin-react':
         specifier: ^5.1.1
-        version: 5.1.2(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1))
+        version: 5.1.2(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1))
       eslint:
         specifier: ^9.39.1
         version: 9.39.2(jiti@2.7.0)
@@ -58,11 +58,11 @@ importers:
         specifier: ^6.41.0
         version: 6.41.0
       vite:
-        specifier: ^7.2.4
-        version: 7.3.6(jiti@2.7.0)(yaml@2.9.1)
+        specifier: ^7.3.8
+        version: 7.3.8(jiti@2.7.0)(yaml@2.9.1)
       vitest:
         specifier: ^5.0.4
-        version: 5.0.4(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1))
+        version: 5.0.4(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1))
 
 packages:
 
@@ -1797,8 +1797,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  vite@7.3.6:
-    resolution: {integrity: sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==}
+  vite@7.3.8:
+    resolution: {integrity: sha512-3tTi78MAKhVk9h+YZVXMQ8POmneJuE97QUPAWtJghHzhH7BAyiqQOC2KZh1DWOsu/USB2cRXhznPByaabvYXfw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -2480,7 +2480,7 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@vitejs/plugin-react@5.1.2(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1))':
+  '@vitejs/plugin-react@5.1.2(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.29.7)
@@ -2488,18 +2488,18 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.53
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.3.6(jiti@2.7.0)(yaml@2.9.1)
+      vite: 7.3.8(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/mocker@5.0.4(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1))':
+  '@vitest/mocker@5.0.4(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.0.4
       estree-walker: 3.0.3
       magic-string: 1.4.3
     optionalDependencies:
-      vite: 7.3.6(jiti@2.7.0)(yaml@2.9.1)
+      vite: 7.3.8(jiti@2.7.0)(yaml@2.9.1)
 
   '@vitest/spy@5.0.4': {}
 
@@ -3766,7 +3766,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite@7.3.6(jiti@2.7.0)(yaml@2.9.1):
+  vite@7.3.8(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.7)
@@ -3779,10 +3779,10 @@ snapshots:
       jiti: 2.7.0
       yaml: 2.9.1
 
-  vitest@5.0.4(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1)):
+  vitest@5.0.4(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.4(vite@7.3.6(jiti@2.7.0)(yaml@2.9.1))
+      '@vitest/mocker': 5.0.4(vite@7.3.8(jiti@2.7.0)(yaml@2.9.1))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -3793,7 +3793,7 @@ snapshots:
       tinybench: 6.2.2
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 7.3.6(jiti@2.7.0)(yaml@2.9.1)
+      vite: 7.3.8(jiti@2.7.0)(yaml@2.9.1)
       why-is-node-running: 3.2.1
     transitivePeerDependencies:
       - msw
