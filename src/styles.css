@@ -8,7 +8,7 @@
   --blue: #1b3a57;
   --yellow: #ffd27a;
   --accent-green: #b7f0de;
-  --mamafit: #cd4060;
+  --margaret: #6d4fc2;
   --text-main: #0b1c24;
   --text-muted: #5b6b72;
   --gray-bg: #f1f4f5;
@@ -2363,8 +2363,8 @@ a {
 }
 
 .product-hero__eyebrow {
-  color: var(--mamafit);
-  border-color: rgba(205, 64, 96, 0.25);
+  color: var(--margaret);
+  border-color: rgba(109, 79, 194, 0.25);
 }
 
 .product-hero__actions {
@@ -2471,7 +2471,7 @@ body:has(.product-viewer[open]) {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  background: var(--mamafit);
+  background: var(--margaret);
   color: var(--white);
   font-weight: 600;
   margin-bottom: 1rem;
@@ -2508,7 +2508,7 @@ body:has(.product-viewer[open]) {
   letter-spacing: 0.16em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--mamafit);
+  color: var(--margaret);
   margin-bottom: 0.75rem;
 }
 
@@ -2528,7 +2528,7 @@ body:has(.product-viewer[open]) {
 
 .product-audience__points svg {
   flex-shrink: 0;
-  color: var(--mamafit);
+  color: var(--margaret);
   margin-top: 0.15rem;
 }
 
@@ -2590,17 +2590,17 @@ body:has(.product-viewer[open]) {
   z-index: -2;
   border-radius: 40px;
   background:
-    radial-gradient(circle at 70% 30%, rgba(205, 64, 96, 0.16), transparent 60%),
-    radial-gradient(circle at 20% 90%, rgba(205, 64, 96, 0.1), transparent 55%);
+    radial-gradient(circle at 70% 30%, rgba(109, 79, 194, 0.16), transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(109, 79, 194, 0.1), transparent 55%);
 }
 
-.product-stage__pulse {
+.product-stage__wave {
   position: absolute;
   right: -6%;
   bottom: -2%;
   width: 70%;
   z-index: -1;
-  color: var(--mamafit);
+  color: var(--margaret);
   opacity: 0.12;
 }
 
@@ -2691,14 +2691,25 @@ body:has(.product-viewer[open]) {
   margin-top: 1.75rem;
   padding: 1rem 1.25rem;
   border-radius: 12px;
-  background: rgba(205, 64, 96, 0.07);
+  background: rgba(109, 79, 194, 0.07);
   color: var(--text-muted);
   line-height: 1.55;
 }
 
 .product-audience__note svg {
   flex-shrink: 0;
-  color: var(--mamafit);
+  color: var(--margaret);
+}
+
+.product-case p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.product-case a {
+  color: var(--margaret);
+  font-weight: 600;
 }
 
 .cta-content .product-credit {

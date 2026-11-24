@@ -41,7 +41,7 @@ const routeSources = {
   '/': ['src/pages/Home.jsx', 'src/pageMeta.js'],
   '/portfolio': ['src/pages/Portfolio.jsx', 'src/pageMeta.js'],
   '/legal': ['src/pages/Legal.jsx', 'src/pageMeta.js'],
-  '/productos/mamafit': ['src/pages/MamaFit.jsx', 'src/pageMeta.js'],
+  '/productos/margaret': ['src/pages/Margaret.jsx', 'src/pageMeta.js'],
 }
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim()

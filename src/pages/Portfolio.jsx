@@ -387,14 +387,14 @@ export const Portfolio = () => {
             image: `/assets/licitador.webp`
         },
         {
-            title: 'MamaFit',
+            title: 'Margaret',
             category: 'product',
             tags: ['salud'],
             team: [],
             role: 'Producto propio',
-            description: 'MamaFit conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
-            page: '/productos/mamafit',
-            image: `/assets/mamafit-portada.webp`
+            description: 'Margaret conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
+            page: '/productos/margaret',
+            image: `/assets/margaret-portada.webp`
         },
         {
             title: 'Internet Freedom Festival',

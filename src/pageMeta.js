@@ -18,12 +18,12 @@ export const pageMeta = {
         title: 'Aviso legal y privacidad — Fluit',
         description: 'Datos del titular de fluit.es, política de privacidad y uso de cookies de FLUIT, COOP. V.',
     },
-    '/productos/mamafit': {
-        title: 'MamaFit — Ejercicio y seguimiento en cáncer de mama · Fluit',
-        description: 'MamaFit conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
+    '/productos/margaret': {
+        title: 'Margaret — Datos, ejercicio y salud · Fluit',
+        description: 'Margaret conecta a entrenadores y hospital alrededor de cada paciente: planifica y registra el entrenamiento, mide su evolución y mantiene a los dos equipos en contacto.',
         shareImage: {
-            path: '/assets/mamafit-og.png',
-            alt: 'MamaFit — Ejercicio y seguimiento en cáncer de mama',
+            path: '/assets/margaret-og.png',
+            alt: 'Margaret — Datos, ejercicio y salud',
         },
     },
     '/404': {
